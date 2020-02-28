@@ -1,9 +1,9 @@
-import 'package:CrResposiveApp/core/base_model_widget.dart';
-import 'package:CrResposiveApp/core/dynamic_ui_for_state.dart';
-import 'package:CrResposiveApp/viewmodels/uv_home_viewmodel.dart';
-import 'package:CrResposiveApp/views/pages/cr_home_view/cr_home_shimmer.dart';
-import 'package:CrResposiveApp/views/widgets/uv_circular_widget.dart';
-import 'package:CrResposiveApp/views/widgets/uv_google_map_widget.dart';
+import 'package:UVLightApp/core/base_model_widget.dart';
+import 'package:UVLightApp/core/dynamic_ui_for_state.dart';
+import 'package:UVLightApp/viewmodels/uv_home_viewmodel.dart';
+import 'package:UVLightApp/views/pages/cr_home_view/cr_home_shimmer.dart';
+import 'package:UVLightApp/views/widgets/uv_circular_widget.dart';
+import 'package:UVLightApp/views/widgets/uv_google_map_widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
@@ -19,7 +19,7 @@ class UVHomeViewMobilePortrait extends BaseModelWidget<UVHomeViewModel>  {
   Widget build(BuildContext context, UVHomeViewModel model) {
 
     maincontext = context;
-     return DynamicUIBasedOnState(state:model.state, onMAinUI: fullView(model :model),onLoadingUI: CRHomeLoadingShimmer(numOfColuminGrid: 2,),onInitUI: CRHomeLoadingShimmer(numOfColuminGrid: 2,),);
+     return DynamicUIBasedOnState(state:model.state, onMAinUI: fullView(model :model));
   }
 
 
@@ -35,7 +35,7 @@ class UVHomeViewMobilePortrait extends BaseModelWidget<UVHomeViewModel>  {
 
               Expanded(
                     child: Center(
-                      child: UVCircularWidget()
+                      child: UVCircularWidget(levelname: model.rangeModel.levelName,valueofUv: model.rangeModel.uv_value,percent: model.rangeModel.percent,)
                               ),
               flex: 5,),
 

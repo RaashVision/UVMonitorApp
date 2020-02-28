@@ -1,13 +1,14 @@
 
-import 'package:CrResposiveApp/managers/dialog_manager.dart';
+import 'package:UVLightApp/managers/dialog_manager.dart';
+import 'package:UVLightApp/managers/theme_manager.dart';
 import 'package:flutter/material.dart';
-import 'package:CrResposiveApp/managers/lifecycle_manager.dart';
-import 'package:CrResposiveApp/views/shared/app_colors.dart';
+import 'package:UVLightApp/managers/lifecycle_manager.dart';
+import 'package:UVLightApp/views/shared/app_colors.dart';
 import 'package:flutter/services.dart';
 import 'locator.dart';
 import 'services/navigation_service.dart';
-import 'package:CrResposiveApp/constants/route_paths.dart' as routes;
-import 'package:CrResposiveApp/router.dart' as router;
+import 'package:UVLightApp/constants/route_paths.dart' as routes;
+import 'package:UVLightApp/router.dart' as router;
 
 
 void main(){
@@ -29,30 +30,37 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
 
 
-   return LifeCycleManager(
-      child: MaterialApp(     
-        title: 'CrResposiveApp',
-        navigatorKey: locator<NavigationService>().navigatorKey,
-        onGenerateRoute: router.generateRoute,
-        initialRoute: routes.HomeRoute,
-         builder: (context, widget) => Navigator(
-          onGenerateRoute: (settings) => MaterialPageRoute(
-              builder: (context) => DialogManager(
-                key: _key,
-                child: widget,
-              )),
-        ),
-        theme: ThemeData(
-          primaryColor: PrimaryColor,
-          floatingActionButtonTheme: FloatingActionButtonThemeData( backgroundColor: FloatingButtonPrimaryColor)
-        
-      ),
-       
-         
-         
-        
-      ),
-    );
+
+     return StreamBuilder<ThemeData>(
+             stream: locator<ThemeManager>().themeController.stream,
+             initialData: ThemeData(
+                primarySwatch: PrimaryColor,),
+             builder: (context, themeSnapshot){
+                 return LifeCycleManager(
+                  child: MaterialApp(     
+                    title: 'UVLightApp',
+                    navigatorKey: locator<NavigationService>().navigatorKey,
+                    onGenerateRoute: router.generateRoute,
+                    initialRoute: routes.LoginRoute,
+                    builder: (context, widget) => Navigator(
+                      onGenerateRoute: (settings) => MaterialPageRoute(
+                          builder: (context) => DialogManager(
+                            key: _key,
+                            child: widget,
+                          )),
+                    ),
+                    theme: themeSnapshot.data
+                  ),
+                );
+             }
+          );
+
+
+
+
+
+
+   
 
   }
 }

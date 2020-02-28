@@ -1,28 +1,28 @@
+import 'package:UVLightApp/viewmodels/uv_login_viewmodel.dart';
 import 'package:UVLightApp/viewmodels/uv_home_viewmodel.dart';
 import 'package:UVLightApp/views/core/base_view.dart';
-import 'package:UVLightApp/views/pages/uv_home_view/mobile/uv_home_m_potrait_view.dart';
 import 'package:UVLightApp/views/responsive/orientation_layout.dart';
 import 'package:UVLightApp/views/responsive/screen_type_layout.dart';
 import 'package:flutter/material.dart';
 
-import 'mobile/uv_home_m_landscape_view.dart';
+import 'mobile/uv_login_m_potrait_view.dart';
 
-class UVHomeView extends StatefulWidget {
+class UVLoginView extends StatefulWidget {
   @override
-  _UVHomeViewState createState() => _UVHomeViewState();
+  _UVLoginViewState createState() => _UVLoginViewState();
 }
 
-class _UVHomeViewState extends State<UVHomeView> {
+class _UVLoginViewState extends State<UVLoginView> {
   @override
   Widget build(BuildContext context) {
-    return BaseView<UVHomeViewModel>(
+    return BaseView<UVLoginViewModel>(
         onModelReady: (model)=> model.getDefaultData(),
          builder: (context, model, child) => ScreenTypeLayout(
           mobile: OrientationLayout(
-            portrait: (context) => UVHomeViewMobilePortrait(),
-            landscape: (context) => UVHomeViewMobileLandScape(),
+            portrait: (context) => UVLoginViewMobilePortrait(),
+         //   landscape: (context) => UVHomeViewMobileLandScape(),
           ),
-          tablet: UVHomeViewMobileLandScape(),
+        //  tablet: UVHomeViewMobileLandScape(),
         ),
       
     );

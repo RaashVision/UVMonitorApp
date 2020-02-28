@@ -1,4 +1,4 @@
-import 'package:CrResposiveApp/enums/device_screen_type.dart';
+import 'package:UVLightApp/enums/device_screen_type.dart';
 import 'package:flutter/widgets.dart';
 
 

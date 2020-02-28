@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.CrResposiveApp">
+    package="com.example.UVLightApp">
 
 
 
@@ -17,7 +17,7 @@
          FlutterApplication and put your custom class here. -->
     <application
         android:name="io.flutter.app.FlutterApplication"
-        android:label="CrResposiveApp"
+        android:label="UVLightApp"
         android:icon="@mipmap/resposiveicon">
 
            <meta-data 

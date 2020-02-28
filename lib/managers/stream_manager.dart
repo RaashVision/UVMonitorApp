@@ -1,6 +1,8 @@
 import 'dart:async';
 
-import 'package:CrResposiveApp/models/es_todo_model.dart';
+import 'package:UVLightApp/models/coordinate.dart';
+import 'package:UVLightApp/models/es_todo_model.dart';
+import 'package:UVLightApp/models/uv_range_model.dart';
 
 class StreamManager{
 
@@ -9,6 +11,10 @@ class StreamManager{
   StreamController<bool> _updatedata = new StreamController.broadcast();
 
   StreamController<String> _receivemessge = new StreamController.broadcast();
+
+  StreamController<Coordinate> _sendCoordinate = new StreamController.broadcast();
+
+  StreamController<UVRangeModel> _currentUvRange = new StreamController.broadcast();
 
   StreamController refreshWhenDbHaveChange(){
 
@@ -23,6 +29,16 @@ class StreamManager{
   StreamController receivedMessageFromMBroker(){
 
     return _receivemessge;
+  }
+
+  StreamController getCoordinateFromGoogleMap(){
+
+    return _sendCoordinate;
+  }
+
+  StreamController getLatestUVRange(){
+
+    return _currentUvRange;
   }
 
 

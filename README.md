@@ -1,4 +1,4 @@
-# CrResposiveApp TodoApp
+# UVLightApp TodoApp
 
 This is the ESTodo app built in Flutter. Use Provider as State Management. Have local storage to store all your TodoList. Only tested with Android. IOS not tested yet
 

@@ -1,4 +1,4 @@
-import 'package:CrResposiveApp/settings.dart';
+import 'package:UVLightApp/settings.dart';
 
 class TypiCodeAPIUrls{
 

@@ -1,4 +1,4 @@
-import 'package:CrResposiveApp/models/typicode_photo.dart';
+import 'package:UVLightApp/models/typicode_photo.dart';
 import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
 

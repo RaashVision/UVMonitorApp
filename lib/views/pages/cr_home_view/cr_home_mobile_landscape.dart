@@ -1,13 +1,13 @@
-import 'package:CrResposiveApp/core/base_model_widget.dart';
-import 'package:CrResposiveApp/core/dynamic_ui_for_state.dart';
-import 'package:CrResposiveApp/viewmodels/cr_home_viewmodel.dart';
-import 'package:CrResposiveApp/views/core/base_view.dart';
-import 'package:CrResposiveApp/views/pages/cr_detail_view/cr_detail_view.dart';
-import 'package:CrResposiveApp/views/pages/cr_home_view/cr_home_shimmer.dart';
-import 'package:CrResposiveApp/views/widgets/cr_typicon_widget.dart';
+import 'package:UVLightApp/core/base_model_widget.dart';
+import 'package:UVLightApp/core/dynamic_ui_for_state.dart';
+import 'package:UVLightApp/viewmodels/cr_home_viewmodel.dart';
+import 'package:UVLightApp/views/core/base_view.dart';
+import 'package:UVLightApp/views/pages/cr_detail_view/cr_detail_view.dart';
+import 'package:UVLightApp/views/pages/cr_home_view/cr_home_shimmer.dart';
+import 'package:UVLightApp/views/widgets/cr_typicon_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
-import 'package:CrResposiveApp/constants/route_paths.dart' as routes;
+import 'package:UVLightApp/constants/route_paths.dart' as routes;
 
 class CrHomeViewMobileLandscape extends BaseModelWidget<CRHomeViewModel>  {
  

@@ -1,5 +1,5 @@
-import 'package:CrResposiveApp/enums/device_screen_type.dart';
-import 'package:CrResposiveApp/views/responsive/responsive_builder.dart';
+import 'package:UVLightApp/enums/device_screen_type.dart';
+import 'package:UVLightApp/views/responsive/responsive_builder.dart';
 import 'package:flutter/material.dart';
 
 

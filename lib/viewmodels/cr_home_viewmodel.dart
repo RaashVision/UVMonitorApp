@@ -1,9 +1,9 @@
 
-import 'package:CrResposiveApp/enums/viewstate.dart';
-import 'package:CrResposiveApp/interfaces/i_repository.dart';
-import 'package:CrResposiveApp/models/typicode_photo.dart';
-import 'package:CrResposiveApp/services/navigation_service.dart';
-import 'package:CrResposiveApp/viewmodels/core/base_viewmodel.dart';
+import 'package:UVLightApp/enums/viewstate.dart';
+import 'package:UVLightApp/interfaces/i_repository.dart';
+import 'package:UVLightApp/models/typicode_photo.dart';
+import 'package:UVLightApp/services/navigation_service.dart';
+import 'package:UVLightApp/viewmodels/core/base_viewmodel.dart';
 
 import '../locator.dart';
 
@@ -17,7 +17,7 @@ class CRHomeViewModel extends BaseViewModel{
 
    List<bool> isSelected = [true, false,];
    NavigationService navigationService = locator<NavigationService>();
-
+   
 
   void getDefaultData() async{
 

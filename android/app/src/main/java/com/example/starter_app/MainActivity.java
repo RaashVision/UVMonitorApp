@@ -1,4 +1,4 @@
-package com.example.CrResposiveApp;
+package com.example.UVLightApp;
 
 import android.os.Bundle;
 import io.flutter.app.FlutterActivity;

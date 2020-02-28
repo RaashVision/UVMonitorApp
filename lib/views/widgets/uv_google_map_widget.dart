@@ -1,9 +1,9 @@
 import 'dart:async';
 
-import 'package:CrResposiveApp/models/coordinate.dart';
-import 'package:CrResposiveApp/viewmodels/uv_googlemap_viewmodel.dart';
-import 'package:CrResposiveApp/views/core/base_view.dart';
-import 'package:CrResposiveApp/views/shared/app_colors.dart';
+import 'package:UVLightApp/models/coordinate.dart';
+import 'package:UVLightApp/viewmodels/uv_googlemap_viewmodel.dart';
+import 'package:UVLightApp/views/core/base_view.dart';
+import 'package:UVLightApp/views/shared/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
@@ -36,9 +36,9 @@ final Map<String, Marker> _markers = {};
                 myLocationEnabled: true,
                 myLocationButtonEnabled : true,
                 //cameraTargetBounds: 
-                onTap: (val){
+                onLongPress: (val){
 
-                    setState(() {
+                   // setState(() {
                     _markers.clear();
                     final marker = Marker(
                         markerId: MarkerId("curr_loc"),
@@ -46,7 +46,9 @@ final Map<String, Marker> _markers = {};
                         infoWindow: InfoWindow(title: 'Your Location'),
                     );
                     _markers["Tap Location"] = marker;
-                  });
+
+                    model.publishCoordinate(new Coordinate(latitude :val.latitude,longtitude: val.longitude));
+                //  });
 
                 },
                 // 2
@@ -65,7 +67,7 @@ final Map<String, Marker> _markers = {};
                 },
                 onCameraIdle: (){
 
-                     setState(() {
+                  //   setState(() {
                     _markers.clear();
                     final marker = Marker(
                         markerId: MarkerId("curr_loc"),
@@ -73,7 +75,9 @@ final Map<String, Marker> _markers = {};
                         infoWindow: InfoWindow(title: 'Your Location'),
                     );
                     _markers["Tap Location"] = marker;
-                  });
+
+                    model.publishCoordinate(newloc);
+                //  });
                 },
                
                 

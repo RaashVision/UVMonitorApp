@@ -1,6 +1,6 @@
 class Coordinate{
 
-  double latitude;
+  dynamic latitude;
   dynamic longtitude;
   DateTime dateTime;
 

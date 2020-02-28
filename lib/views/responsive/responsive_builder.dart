@@ -1,5 +1,5 @@
-import 'package:CrResposiveApp/utils/ui_utils.dart';
-import 'package:CrResposiveApp/views/responsive/sizing_information.dart';
+import 'package:UVLightApp/utils/ui_utils.dart';
+import 'package:UVLightApp/views/responsive/sizing_information.dart';
 import 'package:flutter/material.dart';
 
 

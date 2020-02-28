@@ -1,8 +1,8 @@
-import 'package:CrResposiveApp/views/pages/es_empty_view.dart';
-import 'package:CrResposiveApp/views/pages/es_error_view.dart';
-import 'package:CrResposiveApp/views/shared/style.dart';
+import 'package:UVLightApp/views/pages/es_empty_view.dart';
+import 'package:UVLightApp/views/pages/es_error_view.dart';
+import 'package:UVLightApp/views/shared/style.dart';
 import 'package:flutter/material.dart';
-import 'package:CrResposiveApp/enums/viewstate.dart';
+import 'package:UVLightApp/enums/viewstate.dart';
 
 class DynamicUIBasedOnState extends StatefulWidget {
 
@@ -62,7 +62,7 @@ class _DynamicUIBasedOnStateState extends State<DynamicUIBasedOnState> {
           break;
         case ViewState.Error:
         {
-          currentUI = ESErrorView(onRetry: widget.onRetry,);
+          //currentUI = ESErrorView(onRetry: widget.onRetry,);
           break;
         }
         case ViewState.NoData:

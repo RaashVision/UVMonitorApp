@@ -1,7 +1,7 @@
 
-import 'package:CrResposiveApp/models/typicode_photo.dart';
-import 'package:CrResposiveApp/services/navigation_service.dart';
-import 'package:CrResposiveApp/viewmodels/core/base_viewmodel.dart';
+import 'package:UVLightApp/models/typicode_photo.dart';
+import 'package:UVLightApp/services/navigation_service.dart';
+import 'package:UVLightApp/viewmodels/core/base_viewmodel.dart';
 
 import '../locator.dart';
 

@@ -1,5 +1,5 @@
 import 'dart:io';
-import 'package:CrResposiveApp/services/dialog_service.dart';
+import 'package:UVLightApp/services/dialog_service.dart';
 import 'package:permission_handler/permission_handler.dart';
 
 import '../locator.dart';

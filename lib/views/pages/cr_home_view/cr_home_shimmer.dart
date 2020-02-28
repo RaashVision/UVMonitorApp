@@ -1,6 +1,6 @@
-import 'package:CrResposiveApp/views/widgets/cr_typicon_widget.dart';
+import 'package:UVLightApp/views/widgets/cr_typicon_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:CrResposiveApp/constants/route_paths.dart' as routes;
+import 'package:UVLightApp/constants/route_paths.dart' as routes;
 
 class CRHomeLoadingShimmer extends StatelessWidget {
 

@@ -1,4 +1,4 @@
-import 'package:CrResposiveApp/enums/viewstate.dart';
+import 'package:UVLightApp/enums/viewstate.dart';
 
 class ResultAndStatus{
 

@@ -1,8 +1,8 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:CrResposiveApp/enums/viewstate.dart';
-import 'package:CrResposiveApp/locator.dart';
+import 'package:UVLightApp/enums/viewstate.dart';
+import 'package:UVLightApp/locator.dart';
 
 class BaseViewModel extends ChangeNotifier {
 

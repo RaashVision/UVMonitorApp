@@ -1,15 +1,17 @@
 import 'dart:convert';
 
-import 'package:CrResposiveApp/api_urls.dart';
-import 'package:CrResposiveApp/enums/viewstate.dart';
-import 'package:CrResposiveApp/interfaces/i_api.dart';
-import 'package:CrResposiveApp/locator.dart';
-import 'package:CrResposiveApp/models/coordinate.dart';
-import 'package:CrResposiveApp/models/result.dart';
-import 'package:CrResposiveApp/models/typicode_photo.dart';
-import 'package:CrResposiveApp/utils/network_error_utils.dart';
+import 'package:UVLightApp/api_urls.dart';
+import 'package:UVLightApp/enums/viewstate.dart';
+import 'package:UVLightApp/interfaces/i_api.dart';
+import 'package:UVLightApp/locator.dart';
+import 'package:UVLightApp/models/coordinate.dart';
+import 'package:UVLightApp/models/result.dart';
+import 'package:UVLightApp/models/typicode_photo.dart';
+import 'package:UVLightApp/models/uv_result_model.dart';
+import 'package:UVLightApp/utils/network_error_utils.dart';
 import 'package:dio/dio.dart';
 import 'package:http/http.dart' as kokoi;
+import 'package:intl/intl.dart';
 class DioAPI implements IApi{
 
 
@@ -23,7 +25,7 @@ class DioAPI implements IApi{
     //dio.options.connectTimeout =60*1000; 
     dio.options.receiveTimeout =60*1000; 
     dio.options.sendTimeout = 60*1000;
-    dio.options.headers = {"x-access-token":"dc5ac45060ec40c3c6222747cf919769"};
+    dio.options.headers = {"x-access-token":"cbd950fea8e59ca589d3971f305ec4a8"};
 
   }
 
@@ -35,18 +37,16 @@ class DioAPI implements IApi{
 
       String errormessage = null;
       response = await dio.get(OpenUVAPIUrls.openuvmainurl+OpenUVAPIUrls.uvlightvalueurl,queryParameters: 
-      {"lat": coordinate.latitude,"lng":coordinate.longtitude,"dt":coordinate.dateTime});
+      {"lat": coordinate.latitude,"lng":coordinate.longtitude , "dt":"2020-02-28T14:31:18.440Z"});
 
       if(response.statusCode == 200){
           if(response.data != null){
           
           //Decode the json
-            //var responceJson = jsonDecode(response.data);
+    //        var responceJson = jsonDecode(response.data);
 
           //Deseriliaze to object
-            var asList = (response.data as List)
-                  .map((p) => TypiCodePhoto.fromJson(p))
-                  .toList();
+            var asList = OpenUVApiResult.fromJson(response.data);
 
 
             return ResultAndStatus(ViewState.Idle,errormessage,asList);
@@ -60,7 +60,7 @@ class DioAPI implements IApi{
     //If response is not success
     on DioError catch(e) {
 
-      return _errorHandlerUtils.properErrorMessageDioResponce(response);
+      return _errorHandlerUtils.properErrorMessageDioResponce(e.response);
 
     }
   }

@@ -1,4 +1,4 @@
-name: CrResposiveApp
+name: UVLightApp
 description: A new Flutter project.
 
 # The following defines the version and build number for your application.
@@ -35,6 +35,9 @@ dependencies:
   percent_indicator: "^2.1.1"
   google_maps_flutter: ^0.5.24+1
   location: ^2.5.0
+  intl: ^0.16.1
+  firebase_auth: ^0.15.5+2
+  google_sign_in: ^4.1.4
   #flutter_map: ^0.8.2
 dev_dependencies:
   flutter_test:

@@ -1,4 +1,4 @@
-import 'package:CrResposiveApp/models/coordinate.dart';
+import 'package:UVLightApp/models/coordinate.dart';
 import 'package:location/location.dart';
 class LocationService{
 

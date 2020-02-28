@@ -1,6 +1,6 @@
 
-import 'package:CrResposiveApp/models/coordinate.dart';
-import 'package:CrResposiveApp/models/result.dart';
+import 'package:UVLightApp/models/coordinate.dart';
+import 'package:UVLightApp/models/result.dart';
 
 abstract class IApi{
 

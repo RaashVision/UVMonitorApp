@@ -1,14 +1,24 @@
-import 'package:CrResposiveApp/models/es_todo_model.dart';
-import 'package:CrResposiveApp/models/typicode_photo.dart';
-import 'package:CrResposiveApp/views/pages/cr_detail_view/cr_detail_view.dart';
-import 'package:CrResposiveApp/views/pages/cr_home_view/cr_home_view.dart';
-import 'package:CrResposiveApp/views/pages/uv_home_view/uv_home_view.dart';
+import 'package:UVLightApp/views/pages/uv_login_view/uv_login_view.dart';
+import 'package:UVLightApp/models/es_todo_model.dart';
+import 'package:UVLightApp/models/typicode_photo.dart';
+import 'package:UVLightApp/views/core/startup_view.dart';
+import 'package:UVLightApp/views/pages/cr_detail_view/cr_detail_view.dart';
+import 'package:UVLightApp/views/pages/cr_home_view/cr_home_view.dart';
+import 'package:UVLightApp/views/pages/uv_home_view/uv_home_view.dart';
 import 'package:flutter/material.dart';
-import 'package:CrResposiveApp/constants/route_paths.dart' as routes;
+import 'package:UVLightApp/constants/route_paths.dart' as routes;
 
 //This is namvigation route of the app.
 Route<dynamic> generateRoute(RouteSettings settings) {
   switch (settings.name) {
+
+    case routes.StartUpRoute:
+      //var userName = settings.arguments as String;
+      return MaterialPageRoute(builder: (context) => StartUpView());
+
+       case routes.LoginRoute:
+      //var userName = settings.arguments as String;
+      return MaterialPageRoute(builder: (context) => UVLoginView());
   
     case routes.HomeRoute:
       //var userName = settings.arguments as String;

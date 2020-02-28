@@ -1,9 +1,9 @@
-import 'package:CrResposiveApp/models/typicode_photo.dart';
-import 'package:CrResposiveApp/viewmodels/core/base_viewmodel.dart';
-import 'package:CrResposiveApp/viewmodels/cr_detail_viewmodel.dart';
-import 'package:CrResposiveApp/views/core/base_view.dart';
-import 'package:CrResposiveApp/views/responsive/orientation_layout.dart';
-import 'package:CrResposiveApp/views/responsive/screen_type_layout.dart';
+import 'package:UVLightApp/models/typicode_photo.dart';
+import 'package:UVLightApp/viewmodels/core/base_viewmodel.dart';
+import 'package:UVLightApp/viewmodels/cr_detail_viewmodel.dart';
+import 'package:UVLightApp/views/core/base_view.dart';
+import 'package:UVLightApp/views/responsive/orientation_layout.dart';
+import 'package:UVLightApp/views/responsive/screen_type_layout.dart';
 import 'package:flutter/material.dart';
 
 import 'cr_detail_mobile_landscape.dart';

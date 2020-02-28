@@ -1,8 +1,8 @@
-import 'package:CrResposiveApp/viewmodels/cr_home_viewmodel.dart';
-import 'package:CrResposiveApp/views/core/base_view.dart';
-import 'package:CrResposiveApp/views/pages/cr_home_view/cr_home_mobile_portrait.dart';
-import 'package:CrResposiveApp/views/responsive/orientation_layout.dart';
-import 'package:CrResposiveApp/views/responsive/screen_type_layout.dart';
+import 'package:UVLightApp/viewmodels/cr_home_viewmodel.dart';
+import 'package:UVLightApp/views/core/base_view.dart';
+import 'package:UVLightApp/views/pages/cr_home_view/cr_home_mobile_portrait.dart';
+import 'package:UVLightApp/views/responsive/orientation_layout.dart';
+import 'package:UVLightApp/views/responsive/screen_type_layout.dart';
 import 'package:flutter/material.dart';
 
 import 'cr_home_mobile_landscape.dart';

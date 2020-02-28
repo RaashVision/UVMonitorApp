@@ -4,9 +4,10 @@ class UVRangeModel{
 
   String levelName;
   String shortlevelName;
-  int uv_value;
+  double uv_value;
   Color uv_color;
+  double percent;
 
-  UVRangeModel({this.levelName,this.shortlevelName,this.uv_color,this.uv_value});
+  UVRangeModel({this.levelName,this.shortlevelName,this.uv_color,this.uv_value,this.percent});
 
 }

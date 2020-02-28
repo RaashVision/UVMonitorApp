@@ -1,20 +1,25 @@
 
-import 'package:CrResposiveApp/interfaces/i_datetimeutil.dart';
-import 'package:CrResposiveApp/repository/api/dio/dio_api.dart';
-import 'package:CrResposiveApp/services/dialog_service.dart';
-import 'package:CrResposiveApp/services/location_service.dart';
-import 'package:CrResposiveApp/services/navigation_service.dart';
-import 'package:CrResposiveApp/services/permission_service.dart';
-import 'package:CrResposiveApp/utils/converter_utils.dart';
-import 'package:CrResposiveApp/utils/network_error_utils.dart';
-import 'package:CrResposiveApp/viewmodels/cr_detail_viewmodel.dart';
-import 'package:CrResposiveApp/viewmodels/cr_home_viewmodel.dart';
-import 'package:CrResposiveApp/viewmodels/uv_circular_viewmodel.dart';
-import 'package:CrResposiveApp/viewmodels/uv_googlemap_viewmodel.dart';
-import 'package:CrResposiveApp/viewmodels/uv_home_viewmodel.dart';
+import 'package:UVLightApp/viewmodels/uv_login_viewmodel.dart';
+import 'package:UVLightApp/viewmodels/core/startup_viewmodel.dart';
+import 'package:UVLightApp/interfaces/i_datetimeutil.dart';
+import 'package:UVLightApp/managers/theme_manager.dart';
+import 'package:UVLightApp/repository/api/dio/dio_api.dart';
+import 'package:UVLightApp/services/authentication_service.dart';
+import 'package:UVLightApp/services/dialog_service.dart';
+import 'package:UVLightApp/services/location_service.dart';
+import 'package:UVLightApp/services/navigation_service.dart';
+import 'package:UVLightApp/services/permission_service.dart';
+import 'package:UVLightApp/services/uv_range_service.dart';
+import 'package:UVLightApp/utils/converter_utils.dart';
+import 'package:UVLightApp/utils/network_error_utils.dart';
+import 'package:UVLightApp/viewmodels/cr_detail_viewmodel.dart';
+import 'package:UVLightApp/viewmodels/cr_home_viewmodel.dart';
+import 'package:UVLightApp/viewmodels/uv_circular_viewmodel.dart';
+import 'package:UVLightApp/viewmodels/uv_googlemap_viewmodel.dart';
+import 'package:UVLightApp/viewmodels/uv_home_viewmodel.dart';
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
-import 'package:CrResposiveApp/repository/repository.dart';
+import 'package:UVLightApp/repository/repository.dart';
 import 'interfaces/i_api.dart';
 import 'interfaces/i_repository.dart';
 import 'managers/stream_manager.dart';
@@ -39,6 +44,11 @@ locator.registerLazySingleton(()=>NetworkErrorHandlerUtils());
  locator.registerFactory(()=>UVCircularViewModel());
  locator.registerLazySingleton(()=>LocationService());
  locator.registerFactory(()=>UVGoogleMapViewModel());
+ locator.registerLazySingleton(()=>UVRangeService());
+ locator.registerLazySingleton(()=>ThemeManager());
+ locator.registerLazySingleton(()=>AuthenticationService());
+ locator.registerFactory(()=>StartUpViewModel());
+ locator.registerFactory(()=>UVLoginViewModel());
   
 }
 

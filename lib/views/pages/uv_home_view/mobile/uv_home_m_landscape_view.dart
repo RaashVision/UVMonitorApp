@@ -1,7 +1,7 @@
-import 'package:CrResposiveApp/core/base_model_widget.dart';
-import 'package:CrResposiveApp/core/dynamic_ui_for_state.dart';
-import 'package:CrResposiveApp/viewmodels/uv_home_viewmodel.dart';
-import 'package:CrResposiveApp/views/pages/cr_home_view/cr_home_shimmer.dart';
+import 'package:UVLightApp/core/base_model_widget.dart';
+import 'package:UVLightApp/core/dynamic_ui_for_state.dart';
+import 'package:UVLightApp/viewmodels/uv_home_viewmodel.dart';
+import 'package:UVLightApp/views/pages/cr_home_view/cr_home_shimmer.dart';
 import 'package:flutter/material.dart';
 
 class UVHomeViewMobileLandScape extends BaseModelWidget<UVHomeViewModel>  {

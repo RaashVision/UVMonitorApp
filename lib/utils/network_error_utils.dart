@@ -1,6 +1,6 @@
 
-import 'package:CrResposiveApp/enums/viewstate.dart';
-import 'package:CrResposiveApp/models/result.dart';
+import 'package:UVLightApp/enums/viewstate.dart';
+import 'package:UVLightApp/models/result.dart';
 import 'package:dio/dio.dart';
 
 class NetworkErrorHandlerUtils{
