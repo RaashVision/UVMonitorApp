@@ -1,19 +1,18 @@
-# UVLightApp TodoApp
+#  UVMonitorApp TodoApp
 
-This is the ESTodo app built in Flutter. Use Provider as State Management. Have local storage to store all your TodoList. Only tested with Android. IOS not tested yet
+This is the  UVMonitorApp app built in Flutter. Use Provider as State Management. Have use Google Map and use opensource UV light api (https://www.openuv.io/) for the data. Only tested with Android. IOS not tested yet
 
 ## Screenshots
 
-![screenshot_20200207-212035(1)](https://user-images.githubusercontent.com/14199227/74034569-837b5500-49f3-11ea-9eb7-bb859fef3b0a.jpg)
-![screenshot_20200207-212350(1)](https://user-images.githubusercontent.com/14199227/74034583-8f671700-49f3-11ea-84f1-aa14815c29b5.jpg)
-![screenshot_20200207-212207(1)](https://user-images.githubusercontent.com/14199227/74034602-98f07f00-49f3-11ea-8217-68b787956a5c.jpg)
+![screenshot_20200229-201652](https://user-images.githubusercontent.com/14199227/75607554-3d696b00-5b33-11ea-871f-84e91a9703e1.jpg)
+![screenshot_20200229-202338](https://user-images.githubusercontent.com/14199227/75607563-540fc200-5b33-11ea-9234-b304f8f6a31f.jpg)
+![screenshot_20200229-202344](https://user-images.githubusercontent.com/14199227/75607558-44907900-5b33-11ea-9acc-ce2474d3bf63.jpg)
 
 
 
 ## GIF
 
-![ezgif com-video-to-gif](https://user-images.githubusercontent.com/14199227/74035190-c4279e00-49f4-11ea-9e94-8573ea2085e1.gif)
-
+![20200229-202211](https://user-images.githubusercontent.com/14199227/75607569-62f67480-5b33-11ea-8290-aac06d48547c.gif)
 
 Design Architecture
 - MVVM (Model-View-Viewmodel)
@@ -22,18 +21,19 @@ State Management
 - Provider
 
 Library used
-  - SembastNoSQL - https://pub.dev/packages/sembast
-  - RFAlert - https://pub.dev/packages/rflutter_alert
-  - Vibration - https://pub.dev/documentation/vibration/latest/
-  - ImageGrid - https://pub.dev/documentation/flutter_staggered_grid_view/latest/
+  - google_maps_flutter - https://pub.dev/packages/google_maps_flutter
+  - location  - https://pub.dev/packages/location
+  - percent_indicator  - https://pub.dev/packages/percent_indicator
+  - firebase_auth  - https://pub.dev/packages/firebase_auth
+  - google_sign_in - https://pub.dev/packages/google_sign_in
   - Provider -https://pub.dev/documentation/provider/latest/
   - FlushBar - https://pub.dev/packages/flushbar
-
-Unit Testing
-1. Only add unit testing for validator function
+  - rflutter_alert - https://pub.dev/packages/rflutter_alert
   
-TODO (Not yet done)
-1. Unit Testing for viewmodels
-2. Integration Testing
-3. CI
+Api used
+  - https://www.openuv.io/
 
+TODO
+  - Error handling
+  - No internet connection handling
+  - Resposive UI 
