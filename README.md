@@ -43,3 +43,4 @@ TODO
   - Error handling
   - No internet connection handling
   - Resposive UI 
+  - Sign in with Facebook
