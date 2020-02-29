@@ -1,6 +1,6 @@
 #  UVMonitorApp TodoApp
 
-This is the  UVMonitorApp app built in Flutter. Use Provider as State Management. Have use Google Map and use opensource UV light api (https://www.openuv.io/) for the data. Only tested with Android. IOS not tested yet
+This is the  UVMonitorApp built in Flutter. This app is used to monitor the Ultra violet light value for certain area. I used Provider as State Management. Use Google Map and use opensource UV light api (https://www.openuv.io/) for the data. Only tested with Android. IOS not tested and setup yet
 
 ## Feature
 - Sign in and out using Google Account
