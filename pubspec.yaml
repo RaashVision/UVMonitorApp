@@ -38,7 +38,7 @@ dependencies:
   intl: ^0.16.1
   firebase_auth: ^0.15.5+2
   google_sign_in: ^4.1.4
-  overlay_container: ^0.0.4+1
+  neumorphic: ^0.1.2
   #flutter_map: ^0.8.2
 dev_dependencies:
   flutter_test:

@@ -9,7 +9,8 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class GoogleMapWidget extends StatefulWidget {
 
-  
+  bool permisongiven;
+  GoogleMapWidget({this.permisongiven});
   @override
   _GoogleMapWidgetState createState() => _GoogleMapWidgetState();
 }
@@ -84,34 +85,34 @@ final Map<String, Marker> _markers = {};
               ),
            
            
-           
-          //  Align(
-          //    alignment: Alignment.bottomLeft,
-          //               child: Padding(
-          //                 padding: const EdgeInsets.all(20.0),
-          //                 child: FloatingActionButton(
-          //                   backgroundColor: PrimaryColor.withOpacity(0.7),
-          //                   child: Icon(Icons.my_location),
-          //                   onPressed: () async{
+           widget.permisongiven ==false?
+           Align(
+             alignment: Alignment.bottomLeft,
+                        child: Padding(
+                          padding: const EdgeInsets.all(20.0),
+                          child: FloatingActionButton(
+                            backgroundColor: PrimaryColor.withOpacity(0.7),
+                            child: Icon(Icons.my_location),
+                            onPressed: () async{
 
-          //     var curr =  await model.locationService.getLocation();
+              var curr =  await model.locationService.getLocation();
 
-          //      setState(() {
-          //             _markers.clear();
-          //             final marker = Marker(
-          //                   markerId: MarkerId("curr_loc"),
-          //                   position: LatLng(curr.latitude, curr.longtitude),
-          //                   infoWindow: InfoWindow(title: 'Your Location'),
-          //             );
-          //             _markers["Current Location"] = marker;
+               setState(() {
+                      _markers.clear();
+                      final marker = Marker(
+                            markerId: MarkerId("curr_loc"),
+                            position: LatLng(curr.latitude, curr.longtitude),
+                            infoWindow: InfoWindow(title: 'Your Location'),
+                      );
+                      _markers["Current Location"] = marker;
 
-
+                       model.publishCoordinate(newloc);
                       
-          //           });
+                    });
 
-          //    }),
-          //               ),
-          //  )
+             }),
+                        ),
+           ) :Container()
            
             ],
           ),

@@ -18,58 +18,6 @@ class StartUpViewModel extends BaseViewModel{
 
     void startUpLogic() async {
 
-      bool pms = true;
-
-      //ASk location permission
-      var haspermision = await permissionService.hasPermission(PermissionGroup.location);
-
-      if(!haspermision){
-
-           pms = await permissionService.requestPermission(PermissionGroup.location);
-
-
-      }
-//If permision not given
-     if(!pms){
-
-       var dialogResult = await dialogService.showDialog(
-            title: 'Permission Issue',
-            description: "This application required to access location in order to work.Please go to the app Setting and give permision",
-            buttonTitle: "Request",
-            buttonNegativeTitle: "No"
-          );
-          if (dialogResult.confirmed) {
-
-             await permissionService.openAppSetting();
-
-             pms = await permissionService.requestPermission(PermissionGroup.location);
-
-            //Still deny
-             if(!pms){
-
-               await _navigationService.navigateTo(routes.LoginRoute);
-
-               var dws = 0;
-
-             }
-             else{
-
-               var hasLoggedInUser = await _authenticationService.isUserLoggedIn();
-
-                if (hasLoggedInUser) {
-                 await  _navigationService.navigateTo(routes.HomeRoute);
-                 _navigationService.navigateTo(routes.LoginRoute);
-                } else {
-                  await _navigationService.navigateTo(routes.LoginRoute);
-                }
-
-             }
-
-          } else {
-            print('User cancelled the dialog');
-          }
-     }
-     else{
 
         var hasLoggedInUser = await _authenticationService.isUserLoggedIn();
 
@@ -79,14 +27,10 @@ class StartUpViewModel extends BaseViewModel{
                 } else {
                   await _navigationService.navigateTo(routes.LoginRoute);
                 }
+
+    }
         
 
-
-
-
-     }
-
-     
 
    
   }
@@ -105,6 +49,3 @@ class StartUpViewModel extends BaseViewModel{
 
 
 
-
-
-}

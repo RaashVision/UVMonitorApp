@@ -2,6 +2,7 @@ import 'package:UVLightApp/viewmodels/uv_circular_viewmodel.dart';
 import 'package:UVLightApp/views/core/base_view.dart';
 import 'package:UVLightApp/views/shared/app_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 
 class UVCircularWidget extends StatelessWidget {
@@ -12,7 +13,7 @@ class UVCircularWidget extends StatelessWidget {
   final double valueofUv;
   final Widget centerWidget;
 
-  UVCircularWidget({this.levelname="Low",this.valueofUv=0.0,this.radius = 220.0,this.percent = 0.8,this.centerWidget = const Text(
+  UVCircularWidget({this.levelname="Low",this.valueofUv=0.0,this.radius = 240.0,this.percent = 0.8,this.centerWidget = const Text(
                     "70.0%",
                     style:
                         const TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
@@ -26,6 +27,12 @@ class UVCircularWidget extends StatelessWidget {
               // crossAxisAlignment: CrossAxisAlignment.stretch,
               // mainAxisSize: MainAxisSize.max,
               children: <Widget>[
+
+
+                Align(alignment: Alignment.topCenter, child: Padding(
+                  padding: const EdgeInsets.fromLTRB(0,20,0,0),
+                  child: Text(new DateFormat.yMd().add_jm().format(model.current_cor.dateTime),style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),),
+                )),
 
               
                 Center(
@@ -71,7 +78,8 @@ class UVCircularWidget extends StatelessWidget {
                                   lineWidth: 13.0,
                                   animation: true,
                                   percent: model.rangeModel.percent,
-                                  center:  Column(
+                                  center: 
+                                   Column(
                                       mainAxisAlignment: MainAxisAlignment.center,
                                       children: <Widget>[
                                         Text((model.rangeModel.levelName),style: TextStyle(fontSize: 25),),

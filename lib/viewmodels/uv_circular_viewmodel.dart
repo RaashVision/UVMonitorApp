@@ -25,7 +25,7 @@ class UVCircularViewModel extends BaseViewModel{
   UVRangeModel rangeModel = new UVRangeModel(uv_value: 0,levelName: "Low",percent: 0.0,uv_color: PrimaryColor);
   ThemeManager themeManager  = locator<ThemeManager>();
   String lastClickTime = "";
-  Coordinate current_cor = new Coordinate(latitude: 0.0,longtitude: 0.0);
+  Coordinate current_cor = new Coordinate(latitude: 0.0,longtitude: 0.0, dateTime: DateTime.now());
   DialogService dialogService = locator<DialogService>();
   bool isalredyopen = true;
   //Constructor

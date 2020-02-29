@@ -57,7 +57,7 @@ class UVHomeViewMobilePortrait extends BaseModelWidget<UVHomeViewModel>  {
 
               Expanded(
 
-                child: GoogleMapWidget()
+                child: GoogleMapWidget(permisongiven: model.location_permision,)
 
               ,flex: 5,)
 

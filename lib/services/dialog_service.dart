@@ -25,14 +25,14 @@ class DialogService {
           return _dialogCompleter.future;
       }
 
-        Future<AlertResponse> showDialogMessage({String title, String description, String buttonTitle = 'Ok'})
+        Future<AlertResponse> showDialogMessage({String title, String description, String buttonTitle = 'Ok', String buttonNegativeTitle='No'})
           {
           _dialogCompleter = Completer<AlertResponse>();
           _showDialogMessageListener(AlertRequest(
             title: title,
             description: description,
             buttonTitle: buttonTitle,
-           // buttonNegativeTitle: buttonNegativeTitle
+           buttonNegativeTitle: buttonNegativeTitle
           ));
           return _dialogCompleter.future;
       }

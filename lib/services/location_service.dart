@@ -17,6 +17,11 @@ class LocationService{
     } on Exception catch (e) {
       print('Could not get location: ${e.toString()}');
     }
+    catch(f){
+
+      int ds = 0;
+
+    }
 
     return _currentLocation;
   }

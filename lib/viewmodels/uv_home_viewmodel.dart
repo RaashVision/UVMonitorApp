@@ -9,9 +9,11 @@ import 'package:UVLightApp/models/uv_result_model.dart';
 import 'package:UVLightApp/services/authentication_service.dart';
 import 'package:UVLightApp/services/dialog_service.dart';
 import 'package:UVLightApp/services/navigation_service.dart';
+import 'package:UVLightApp/services/permission_service.dart';
 import 'package:UVLightApp/services/uv_range_service.dart';
 import 'package:UVLightApp/viewmodels/core/base_viewmodel.dart';
 import 'package:flutter/material.dart';
+import 'package:permission_handler/permission_handler.dart';
 
 class UVHomeViewModel extends BaseViewModel{
 
@@ -25,10 +27,19 @@ class UVHomeViewModel extends BaseViewModel{
   ThemeManager themeManager  = locator<ThemeManager>();
   DialogService dialogService = locator<DialogService>();
   AuthenticationService authenticationService = locator<AuthenticationService>();
+   PermissionService permissionService  =locator<PermissionService>();
+   bool location_permision = false;
   //Constructor
   
 
   void getDefaultData() async{
+
+
+
+     location_permision = await permissionService.permissionForLocation();
+     
+
+      setState(viewState:ViewState.Idle);
 
 
   }

@@ -47,61 +47,14 @@ class UVLoginViewModel extends BaseViewModel{
 
     try{
 
-      bool pms = true;
+ 
+      var permissionLocation = await permissionService.permissionForLocation();
 
-      //ASk location permission
-      var haspermision = await permissionService.hasPermission(PermissionGroup.location);
+  //If no location given
+      if(!permissionLocation){
 
-      if(!haspermision){
-
-           pms = await permissionService.requestPermission(PermissionGroup.location);
-
-
+          return;
       }
-
-
-    //If permision not given
-     if(!pms){
-
-        var dialogResult = await dialogService.showDialog(
-            title: 'Permission Issue',
-            description: "This application required to access location in order to work",
-            buttonTitle: "Request",
-            buttonNegativeTitle: "No"
-          );
-          if (dialogResult.confirmed) {
-
-            var pms = await permissionService.openAppSetting();
-
-            //Still deny
-             if(!pms){
-
-               await _navigationService.navigateTo(routes.LoginRoute);
-
-               var dws = 0;
-
-             }
-             else{
-
-               var hasLoggedInUser = await authenticationService.isUserLoggedIn();
-
-                if (hasLoggedInUser) {
-                 await  _navigationService.navigateTo(routes.HomeRoute);
-                 _navigationService.navigateTo(routes.LoginRoute);
-                } else {
-                  await _navigationService.navigateTo(routes.LoginRoute);
-                }
-
-             }
-
-          }
-          else{
-
-          }
-
-
-     }
-
      
      
 

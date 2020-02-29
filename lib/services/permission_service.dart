@@ -8,6 +8,8 @@ class PermissionService{
 
     final PermissionHandler _permissionHandler = PermissionHandler();
 
+    DialogService dialogService = locator<DialogService>();
+
 //Request for the permission
    Future<bool> requestPermission(PermissionGroup permission) async {
    var result = await _permissionHandler.requestPermissions([permission]);
@@ -58,6 +60,68 @@ class PermissionService{
  Future<bool> openAppSetting() async{
 
    return await _permissionHandler.openAppSettings();
+ }
+
+
+
+
+
+ Future<bool> permissionForLocation() async{
+
+   bool status_request = true;
+
+   //var haspermisionWhenInUse = await hasPermission(PermissionGroup.locationWhenInUse);
+   var haspermision = await hasPermission(PermissionGroup.location);
+   //var haspermisionAlways = await hasPermission(PermissionGroup.locationAlways);
+
+      //If no permission
+      if(!haspermision){
+
+           status_request = await requestPermission(PermissionGroup.location);
+
+
+      }
+
+
+    //If permision deny
+     if(!status_request){
+
+        var dialogResult = await dialogService.showDialog(
+            title: 'Permission Issue',
+            description: "This application location permission to work properly",
+            buttonTitle: "Request",
+            buttonNegativeTitle: "No"
+          );
+          //If he select yes
+          if (dialogResult.confirmed) {
+
+            var opensettingstatus =await _permissionHandler.openAppSettings();
+
+            //If user open the seeting page and come back to app, check permission again
+            if(opensettingstatus){
+                var haspermisionAgain = await hasPermission(PermissionGroup.locationWhenInUse);
+
+                if(!haspermisionAgain){
+
+                  return false;
+
+                }
+
+                return true;
+
+            }
+
+            return false;
+
+          }
+
+          return false;
+
+     }
+
+     return true;
+
+
  }
 
 
