@@ -20,7 +20,9 @@ class UVHomeViewMobilePortrait extends BaseModelWidget<UVHomeViewModel>  {
   Widget build(BuildContext context, UVHomeViewModel model) {
 
     maincontext = context;
-     return DynamicUIBasedOnState(state:model.state, onMAinUI: fullView(model :model));
+     return  WillPopScope(
+        onWillPop: () async => false,
+        child: DynamicUIBasedOnState(state:model.state, onMAinUI: fullView(model :model)));
   }
 
 
