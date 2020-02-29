@@ -2,6 +2,12 @@
 
 This is the  UVMonitorApp app built in Flutter. Use Provider as State Management. Have use Google Map and use opensource UV light api (https://www.openuv.io/) for the data. Only tested with Android. IOS not tested yet
 
+## Feature
+- Sign in and out using Google Account
+- Get current location in Google map and gets its UV index value
+- Tap on google map to get the particular UV index value
+- Check Profile information by tap on profile picture
+
 ## Screenshots
 
 ![screenshot_20200229-201652](https://user-images.githubusercontent.com/14199227/75607554-3d696b00-5b33-11ea-871f-84e91a9703e1.jpg)
