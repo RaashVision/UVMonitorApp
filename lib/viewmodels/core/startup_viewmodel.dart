@@ -21,11 +21,11 @@ class StartUpViewModel extends BaseViewModel{
       bool pms = true;
 
       //ASk location permission
-      var haspermision = await permissionService.hasPermission(PermissionGroup.locationAlways);
+      var haspermision = await permissionService.hasPermission(PermissionGroup.location);
 
       if(!haspermision){
 
-           pms = await permissionService.requestPermission(PermissionGroup.locationAlways);
+           pms = await permissionService.requestPermission(PermissionGroup.location);
 
 
       }
@@ -40,7 +40,9 @@ class StartUpViewModel extends BaseViewModel{
           );
           if (dialogResult.confirmed) {
 
-             var pms = await permissionService.openAppSetting();
+             await permissionService.openAppSetting();
+
+             pms = await permissionService.requestPermission(PermissionGroup.location);
 
             //Still deny
              if(!pms){
