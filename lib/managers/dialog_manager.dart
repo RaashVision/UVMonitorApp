@@ -48,8 +48,7 @@ class _DialogManagerState extends State<DialogManager> {
               Navigator.of(context).pop();
             },
           ),
-
-            DialogButton(
+              DialogButton(
             color: PrimaryColor,
             radius: BorderRadius.circular(5),
             child: Text(request.buttonNegativeTitle, style: TextStyle(color: Colors.black),),
@@ -80,15 +79,6 @@ class _DialogManagerState extends State<DialogManager> {
             },
           ),
 
-          //   DialogButton(
-          //   color: PrimaryColor,
-          //   radius: BorderRadius.circular(5),
-          //   child: Text(request.buttonNegativeTitle, style: TextStyle(color: Colors.black),),
-          //   onPressed: () {
-          //     _dialogService.dialogComplete(AlertResponse(confirmed: false));
-          //     Navigator.of(context).pop();
-          //   },
-          // )
         ]).show();
   }
 

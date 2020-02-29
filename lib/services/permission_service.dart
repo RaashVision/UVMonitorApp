@@ -55,5 +55,11 @@ class PermissionService{
  }
 
 
+ Future<bool> openAppSetting() async{
+
+   return await _permissionHandler.openAppSettings();
+ }
+
+
 
 }

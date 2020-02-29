@@ -12,13 +12,12 @@ import 'package:UVLightApp/router.dart' as router;
 
 
 void main(){
-
-  //WidgetsFlutterBinding.ensureInitialized();
-
-  //Dependecy injectiion
   setupLocator();
-
-     runApp(new MyApp());
+     WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
+    .then((_) {
+      runApp(new MyApp());
+    });
 }
 
 class MyApp extends StatelessWidget {
@@ -28,8 +27,6 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-
-
 
      return StreamBuilder<ThemeData>(
              stream: locator<ThemeManager>().themeController.stream,
@@ -41,7 +38,7 @@ class MyApp extends StatelessWidget {
                     title: 'UVLightApp',
                     navigatorKey: locator<NavigationService>().navigatorKey,
                     onGenerateRoute: router.generateRoute,
-                    initialRoute: routes.LoginRoute,
+                    initialRoute: routes.StartUpRoute,
                     builder: (context, widget) => Navigator(
                       onGenerateRoute: (settings) => MaterialPageRoute(
                           builder: (context) => DialogManager(
@@ -54,13 +51,6 @@ class MyApp extends StatelessWidget {
                 );
              }
           );
-
-
-
-
-
-
-   
 
   }
 }

@@ -6,7 +6,7 @@ class ServiceResultAndStatus{
   String errormessage;
   dynamic resultdata;
 
-  ServiceResultAndStatus(this.isSuccess, this.errormessage, this.resultdata);
+  ServiceResultAndStatus({this.isSuccess, this.errormessage, this.resultdata});
 
 
   getIsSucess(){

@@ -29,28 +29,62 @@ class UVCircularWidget extends StatelessWidget {
 
               
                 Center(
-                  child: new CircularPercentIndicator(
-                                // header: Padding(
-                                //   padding: const EdgeInsets.all(5.0),
-                                //   child: Text(model.lastClickTime,style: TextStyle(fontSize: 20),),
-                                // ),
-                                radius: radius,
-                                lineWidth: 13.0,
-                                animation: true,
-                                percent: model.rangeModel.percent,
-                                center:  Column(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: <Widget>[
-                                      Text((model.rangeModel.levelName),style: TextStyle(fontSize: 25),),
-                                      Text(model.rangeModel.uv_value?.toString()??"0",style: TextStyle(fontSize: 30),)
-                                    ],
+                  child: GestureDetector(
+                    onTap: (){
+
+
+                    showModalBottomSheet(
+                        shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.only(topLeft: Radius.circular(10.0), topRight: Radius.circular(10.0)),
+                            ),
+                        context: context,
+                        builder: (BuildContext bc){
+                            return Padding(
+                              padding: const EdgeInsets.fromLTRB(0,10,0,0),
+                              child: Container(
+                                      
+                                child: new Wrap(
+                                children: <Widget>[
+                                  
+                                  Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: Text('UV Range',style: TextStyle(fontSize:20,fontWeight:FontWeight.bold),),
                                   ),
-                                
-                                //footer: Text(model.lastClickTime),
-                                
-                                circularStrokeCap: CircularStrokeCap.butt,
-                                progressColor: model.rangeModel.uv_color,
+                                  Image.asset('uvrange.PNG' , width: MediaQuery.of(context).size.width,)
+                                 
+          
+          
+                                ],
                               ),
+                              ),
+                            );
+                        }
+                      );
+
+                    },
+                                      child: new CircularPercentIndicator(
+                                  // header: Padding(
+                                  //   padding: const EdgeInsets.all(5.0),
+                                  //   child: Text(model.lastClickTime,style: TextStyle(fontSize: 20),),
+                                  // ),
+                                  radius: radius,
+                                  lineWidth: 13.0,
+                                  animation: true,
+                                  percent: model.rangeModel.percent,
+                                  center:  Column(
+                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      children: <Widget>[
+                                        Text((model.rangeModel.levelName),style: TextStyle(fontSize: 25),),
+                                        Text(model.rangeModel.uv_value?.toString()??"0",style: TextStyle(fontSize: 30),)
+                                      ],
+                                    ),
+                                  
+                                  //footer: Text(model.lastClickTime),
+                                  
+                                  circularStrokeCap: CircularStrokeCap.butt,
+                                  progressColor: model.rangeModel.uv_color,
+                                ),
+                  ),
                 ),
                 
 

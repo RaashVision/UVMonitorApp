@@ -31,8 +31,6 @@ final Map<String, Marker> _markers = {};
           body: Stack(
             children: <Widget>[
               GoogleMap(
-                
-                
                 myLocationEnabled: true,
                 myLocationButtonEnabled : true,
                 //cameraTargetBounds: 
@@ -67,7 +65,7 @@ final Map<String, Marker> _markers = {};
                 },
                 onCameraIdle: (){
 
-                  //   setState(() {
+                    setState(() {
                     _markers.clear();
                     final marker = Marker(
                         markerId: MarkerId("curr_loc"),
@@ -76,8 +74,9 @@ final Map<String, Marker> _markers = {};
                     );
                     _markers["Tap Location"] = marker;
 
-                    model.publishCoordinate(newloc);
-                //  });
+                    
+                 });
+                 model.publishCoordinate(newloc);
                 },
                
                 

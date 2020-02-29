@@ -11,7 +11,7 @@ class Background extends StatelessWidget {
           new Stack(
             alignment: Alignment.bottomCenter,
             children: <Widget>[
-              Image.asset('assets/collaboration.png', width: MediaQuery.of(context).size.width/1.5,),
+            //  Image.asset('assets/collaboration.png', width: MediaQuery.of(context).size.width/1.5,),
               WavyHeader(),
             ],
           ),
@@ -70,7 +70,7 @@ class WavyHeader extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(
           gradient: LinearGradient(
-              colors: aubergineGradient,
+              colors: orangeGradients,
               begin: Alignment.topLeft,
               end: Alignment.center),
         ),
@@ -88,7 +88,7 @@ class WavyFooter extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(
           gradient: LinearGradient(
-              colors: violetGradients,
+              colors: orangeGradients,
               begin: Alignment.center,
               end: Alignment.bottomRight),
         ),

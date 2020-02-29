@@ -18,7 +18,7 @@
     <application
         android:name="io.flutter.app.FlutterApplication"
         android:label="UVLightApp"
-        android:icon="@mipmap/resposiveicon">
+        android:icon="@mipmap/uvlogo">
 
            <meta-data 
                 android:name="com.google.android.geo.API_KEY"

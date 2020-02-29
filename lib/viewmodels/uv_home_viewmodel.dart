@@ -6,6 +6,8 @@ import 'package:UVLightApp/managers/theme_manager.dart';
 import 'package:UVLightApp/models/coordinate.dart';
 import 'package:UVLightApp/models/uv_range_model.dart';
 import 'package:UVLightApp/models/uv_result_model.dart';
+import 'package:UVLightApp/services/authentication_service.dart';
+import 'package:UVLightApp/services/dialog_service.dart';
 import 'package:UVLightApp/services/navigation_service.dart';
 import 'package:UVLightApp/services/uv_range_service.dart';
 import 'package:UVLightApp/viewmodels/core/base_viewmodel.dart';
@@ -21,20 +23,10 @@ class UVHomeViewModel extends BaseViewModel{
   UVRangeService uvRangeService = locator<UVRangeService>();
   UVRangeModel rangeModel = new UVRangeModel(uv_value: 0,levelName: "Low",percent: 0.0,);
   ThemeManager themeManager  = locator<ThemeManager>();
-
+  DialogService dialogService = locator<DialogService>();
+  AuthenticationService authenticationService = locator<AuthenticationService>();
   //Constructor
-  UVHomeViewModel(){
-
-    //  iStream.getCoordinateFromGoogleMap().stream.listen((value) async{
-
-    //    getUVvaluefortheCoordinate(value);
-     
-
-    //  });
-
-
-
-  }
+  
 
   void getDefaultData() async{
 
@@ -84,5 +76,33 @@ class UVHomeViewModel extends BaseViewModel{
 
 
   }
+
+
+
+  void logoutfromApp() async{
+
+    
+    var dialogResult = await dialogService.showDialog(
+            title: 'Logout',
+            description: "Are you sure you want to logout?",
+            buttonNegativeTitle: "No",
+            buttonTitle: "Yes"
+          );
+          if (dialogResult.confirmed) {
+           authenticationService.signOutWithGoogle();
+           navigationService.goBack();
+          } else {
+            print('User cancelled the dialog');
+          }
+
+
+
+
+
+  }
+
+
+
+
 
 }

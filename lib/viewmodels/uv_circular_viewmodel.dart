@@ -27,13 +27,24 @@ class UVCircularViewModel extends BaseViewModel{
   String lastClickTime = "";
   Coordinate current_cor = new Coordinate(latitude: 0.0,longtitude: 0.0);
   DialogService dialogService = locator<DialogService>();
-  
+  bool isalredyopen = true;
   //Constructor
   UVCircularViewModel(){
 
      iStream.getCoordinateFromGoogleMap().stream.listen((value) async{
 
-       getUVvaluefortheCoordinate(value);
+
+
+       if(isalredyopen){
+
+          isalredyopen = false;
+          await getUVvaluefortheCoordinate(value);
+          isalredyopen = true;
+
+       }
+       
+
+      
      
 
      });
@@ -48,7 +59,7 @@ class UVCircularViewModel extends BaseViewModel{
   }
 
 
-  void getUVvaluefortheCoordinate(Coordinate _tapcorrdinate) async{
+  Future getUVvaluefortheCoordinate(Coordinate _tapcorrdinate) async{
 
     try{
     //  setState(viewState:ViewState.Busy);

@@ -2,13 +2,15 @@ import 'package:UVLightApp/core/base_model_widget.dart';
 import 'package:UVLightApp/core/dynamic_ui_for_state.dart';
 import 'package:UVLightApp/viewmodels/uv_home_viewmodel.dart';
 import 'package:UVLightApp/viewmodels/uv_login_viewmodel.dart';
-import 'package:UVLightApp/views/pages/cr_home_view/cr_home_shimmer.dart';
 import 'package:UVLightApp/views/widgets/background.dart';
 import 'package:UVLightApp/views/widgets/uv_circular_widget.dart';
 import 'package:UVLightApp/views/widgets/uv_google_map_widget.dart';
+import 'package:UVLightApp/views/widgets/uv_signin_btn_widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
+
+import '../../../../settings.dart';
 
 class UVLoginViewMobilePortrait extends BaseModelWidget<UVLoginViewModel>  {
  
@@ -21,25 +23,27 @@ class UVLoginViewMobilePortrait extends BaseModelWidget<UVLoginViewModel>  {
   Widget build(BuildContext context, UVLoginViewModel model) {
 
     maincontext = context;
-     return DynamicUIBasedOnState(state:model.state, onMAinUI: fullView(model :model));
+     return WillPopScope(
+        onWillPop: () async => false,
+       child: DynamicUIBasedOnState(state:model.state, onMAinUI: fullView(model :model)));
   }
 
 
   Widget fullView({UVLoginViewModel model}){
 
       return Scaffold(
-        //appBar: AppBar(title: Text("UVLight App"),centerTitle: true,),
         body: //SafeArea(child: 
         Stack(
-         // crossAxisAlignment: CrossAxisAlignment.stretch,
-          //mainAxisSize: MainAxisSize.max,
           children: <Widget>[
 
             Background(),
-            Align(
-              alignment: Alignment.center,
-              child: logoAndBtnLis())
-            
+
+            Positioned(
+              top: MediaQuery.of(maincontext).size.height/5,
+              //bottom: 30,
+              left: 1,
+              right: 30,
+              child: logoAndBtn(model))
           ],
         )
         //),
@@ -49,18 +53,25 @@ class UVLoginViewMobilePortrait extends BaseModelWidget<UVLoginViewModel>  {
   }
 
 
-  Widget  logoAndBtn(){
+  Widget  logoAndBtn(UVLoginViewModel model){
 
-    return Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        mainAxisSize: MainAxisSize.max,
-        children: <Widget>[
+    return Container(
+      //color: Colors.red,
+      child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          mainAxisSize: MainAxisSize.max,
+          children: <Widget>[
 
-          FlutterLogo(),
-          Text('Thiyraash')
-
-        ],
-      );
+            //FlutterLogo(size: 180,),
+            Image.asset("uvlogo.png",height:180,),
+            SizedBox(height: 20),
+            Text(Settings.appBarTiitle ,style: TextStyle(fontSize: 35, color: Colors.orange,fontWeight: FontWeight.bold), textAlign: TextAlign.center,),
+            SizedBox(height: 30),
+            SignBtnWidget( topRight: 30.0, bottomRight:30.0,imgfilenname: "googleicon.png",btnname: 'Sign in with Google',isGoogle: model.signinBasedOnSelectedAccount ,isGooglebtn: true,),
+            SignBtnWidget( topRight: 30.0, bottomRight:30.0,imgfilenname: "fblogo.png",btnname: 'Sign in with Facebook',isGoogle: model.signinBasedOnSelectedAccount ,isGooglebtn: false),
+          ],
+        ),
+    );
     
   }
 
@@ -68,8 +79,10 @@ class UVLoginViewMobilePortrait extends BaseModelWidget<UVLoginViewModel>  {
 
     return ListView(children: <Widget>[
 
-       FlutterLogo(size: 50,),
-          Text('Thiyraash')
+      
+
+       FlutterLogo(size: 20,),
+       Text('Thiyraash')
 
 
     ]);

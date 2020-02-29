@@ -1,7 +1,6 @@
 
 import 'package:UVLightApp/viewmodels/uv_login_viewmodel.dart';
 import 'package:UVLightApp/viewmodels/core/startup_viewmodel.dart';
-import 'package:UVLightApp/interfaces/i_datetimeutil.dart';
 import 'package:UVLightApp/managers/theme_manager.dart';
 import 'package:UVLightApp/repository/api/dio/dio_api.dart';
 import 'package:UVLightApp/services/authentication_service.dart';
@@ -12,12 +11,10 @@ import 'package:UVLightApp/services/permission_service.dart';
 import 'package:UVLightApp/services/uv_range_service.dart';
 import 'package:UVLightApp/utils/converter_utils.dart';
 import 'package:UVLightApp/utils/network_error_utils.dart';
-import 'package:UVLightApp/viewmodels/cr_detail_viewmodel.dart';
-import 'package:UVLightApp/viewmodels/cr_home_viewmodel.dart';
 import 'package:UVLightApp/viewmodels/uv_circular_viewmodel.dart';
 import 'package:UVLightApp/viewmodels/uv_googlemap_viewmodel.dart';
 import 'package:UVLightApp/viewmodels/uv_home_viewmodel.dart';
-import 'package:dio/dio.dart';
+import 'package:UVLightApp/viewmodels/uv_profile_pic_viewmodel.dart';
 import 'package:get_it/get_it.dart';
 import 'package:UVLightApp/repository/repository.dart';
 import 'interfaces/i_api.dart';
@@ -29,11 +26,8 @@ GetIt locator = GetIt.I;
 void setupLocator() {
 //This file is for dependecies injection
 
-locator.registerSingleton(()=> Dio());
 locator.registerLazySingleton(()=>ConverterHelperUtils());
 locator.registerLazySingleton(() => NavigationService());
-locator.registerFactory(()=>CRHomeViewModel());
-locator.registerFactory(()=>CRDetailViewModel());
 locator.registerLazySingleton(()=>StreamManager());
 locator.registerLazySingleton(() => DialogService());
 locator.registerLazySingleton(()=> PermissionService());
@@ -49,6 +43,6 @@ locator.registerLazySingleton(()=>NetworkErrorHandlerUtils());
  locator.registerLazySingleton(()=>AuthenticationService());
  locator.registerFactory(()=>StartUpViewModel());
  locator.registerFactory(()=>UVLoginViewModel());
-  
+  locator.registerFactory(()=>UVProfilePicViewModel());
 }
 

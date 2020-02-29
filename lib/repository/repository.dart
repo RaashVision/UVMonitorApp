@@ -4,7 +4,6 @@ import 'package:UVLightApp/interfaces/i_repository.dart';
 import 'package:UVLightApp/locator.dart';
 import 'package:UVLightApp/managers/stream_manager.dart';
 import 'package:UVLightApp/models/coordinate.dart';
-import 'package:UVLightApp/models/es_todo_model.dart';
 import 'package:UVLightApp/models/result.dart';
 
 class Repository implements IRepository{

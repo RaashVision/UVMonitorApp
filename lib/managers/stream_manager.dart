@@ -1,7 +1,5 @@
 import 'dart:async';
-
 import 'package:UVLightApp/models/coordinate.dart';
-import 'package:UVLightApp/models/es_todo_model.dart';
 import 'package:UVLightApp/models/uv_range_model.dart';
 
 class StreamManager{

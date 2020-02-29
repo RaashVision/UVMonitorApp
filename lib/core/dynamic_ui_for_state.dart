@@ -1,6 +1,4 @@
 import 'package:UVLightApp/views/pages/es_empty_view.dart';
-import 'package:UVLightApp/views/pages/es_error_view.dart';
-import 'package:UVLightApp/views/shared/style.dart';
 import 'package:flutter/material.dart';
 import 'package:UVLightApp/enums/viewstate.dart';
 

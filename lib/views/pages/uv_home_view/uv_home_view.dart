@@ -5,8 +5,6 @@ import 'package:UVLightApp/views/responsive/orientation_layout.dart';
 import 'package:UVLightApp/views/responsive/screen_type_layout.dart';
 import 'package:flutter/material.dart';
 
-import 'mobile/uv_home_m_landscape_view.dart';
-
 class UVHomeView extends StatefulWidget {
   @override
   _UVHomeViewState createState() => _UVHomeViewState();
@@ -20,9 +18,9 @@ class _UVHomeViewState extends State<UVHomeView> {
          builder: (context, model, child) => ScreenTypeLayout(
           mobile: OrientationLayout(
             portrait: (context) => UVHomeViewMobilePortrait(),
-            landscape: (context) => UVHomeViewMobileLandScape(),
+            landscape: (context) => UVHomeViewMobilePortrait(),
           ),
-          tablet: UVHomeViewMobileLandScape(),
+          tablet: UVHomeViewMobilePortrait(),
         ),
       
     );

@@ -1,12 +1,13 @@
 import 'package:UVLightApp/viewmodels/core/startup_viewmodel.dart';
 import 'package:UVLightApp/views/core/base_view.dart';
+import 'package:UVLightApp/views/shared/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class StartUpView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BaseView<StartUpViewModel>(
-        onModelReady: (model)=> model.getDefaultData(),
+        onModelReady: (model)=> model.startUpLogic(),
          builder: (context, model, child) => Scaffold(
         backgroundColor: Colors.white,
         body: Center(
@@ -20,7 +21,7 @@ class StartUpView extends StatelessWidget {
               // ),
               CircularProgressIndicator(
                 strokeWidth: 3,
-                valueColor: AlwaysStoppedAnimation(Color(0xff19c7c1)),
+                valueColor: AlwaysStoppedAnimation(PrimaryColor),
               )
             ],
           ),
