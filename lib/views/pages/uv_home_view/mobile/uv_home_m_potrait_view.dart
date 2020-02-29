@@ -7,19 +7,13 @@ import 'package:UVLightApp/views/widgets/uv_google_map_widget.dart';
 import 'package:UVLightApp/views/widgets/uv_profile_pic_widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:percent_indicator/circular_percent_indicator.dart';
 
 class UVHomeViewMobilePortrait extends BaseModelWidget<UVHomeViewModel>  {
  
-  List<bool> isSelected = [false, false, false];
-
-  BuildContext maincontext;
-
 
   @override
   Widget build(BuildContext context, UVHomeViewModel model) {
 
-    maincontext = context;
      return  WillPopScope(
         onWillPop: () async => false,
         child: DynamicUIBasedOnState(state:model.state, onMAinUI: fullView(model :model)));
@@ -37,9 +31,6 @@ class UVHomeViewMobilePortrait extends BaseModelWidget<UVHomeViewModel>  {
             IconButton(icon: Icon(Icons.exit_to_app, color: Colors.white,),onPressed: (){
 
               model.logoutfromApp();
-
-
-              
             },)
 
         ],),
@@ -51,7 +42,7 @@ class UVHomeViewMobilePortrait extends BaseModelWidget<UVHomeViewModel>  {
 
               Expanded(
                     child: Center(
-                      child: UVCircularWidget(levelname: model.rangeModel.levelName,valueofUv: model.rangeModel.uv_value,percent: model.rangeModel.percent,)
+                      child: UVCircularWidget()
                               ),
               flex: 5,),
 

@@ -10,39 +10,12 @@ import 'core/base_viewmodel.dart';
 
 class UVLoginViewModel extends BaseViewModel{
 
-  String errormessage; 
   AuthenticationService authenticationService = locator<AuthenticationService>();
   DialogService dialogService = locator<DialogService>();
-  final NavigationService _navigationService = locator<NavigationService>();
-   PermissionService permissionService  =locator<PermissionService>();
-  void getDefaultData() async{
+   NavigationService _navigationService = locator<NavigationService>();
+  PermissionService permissionService  =locator<PermissionService>();
 
-
-  }
-
-  void signinUsingGoogle() async{
-    try{
-
-
-
-      
-
-      
-
-  //lOGIN TO GOOGLE
-   var ds = await authenticationService.signInWithGoogle();
-
- 
-    }
-      catch(e){
-      
-
-      }
-
-
-
-  }
-
+//Login function
   void signinBasedOnSelectedAccount(bool isGoogle) async{
 
     try{
@@ -50,59 +23,47 @@ class UVLoginViewModel extends BaseViewModel{
  
       var permissionLocation = await permissionService.permissionForLocation();
 
-  //If no location given
-      if(!permissionLocation){
-
+     //If no location given
+      if(!permissionLocation)
           return;
-      }
-     
-     
 
-//If click google sign in btn
-    if(isGoogle){
+        //If click google sign in btn
+            if(isGoogle){
 
-       setState(viewState:ViewState.Busy);
+              setState(viewState:ViewState.Busy);
 
-      var result = await authenticationService.signInWithGoogle();
+              var result = await authenticationService.signInWithGoogle();
 
-      //If authorization succedd
-      if(result.isSuccess){
+              //If authorization succedd
+              if(result.isSuccess)
+                _navigationService.navigateTo(routes.HomeRoute);
 
-        _navigationService.navigateTo(routes.HomeRoute);
+              //If authorization failed
+              else{
+                //If didnot select anything
+                  if(result.errormessage == "noselection"){
+                    setState(viewState:ViewState.Idle);
+                    return;
+                  }  
+                  var dialogResult = await dialogService.showDialogMessage(
+                    title: 'Error',
+                    description: result.errormessage,
+                  );
+              }
 
+            }
+              //If click FB sign in
+            else{
 
+              var dialogResult = await dialogService.showDialogMessage(
+                    title: 'Facebook Sign In',
+                    description: "Feature coming soon",
+                  );
 
-      }
-      else{
-
-        //If didnot select anything
-          if(result.errormessage == "noselection"){
-             setState(viewState:ViewState.Idle);
-            return;
-          }
-          
-          var dialogResult = await dialogService.showDialogMessage(
-            title: 'Error',
-            description: result.errormessage,
-          );
-        
-
-
-      }
-
-    }
-       //If click FB sign in
-    else{
-
-      var dialogResult = await dialogService.showDialogMessage(
-            title: 'Facebook Sign In',
-            description: "Feature coming soon",
-          );
-
-      // setState(viewState:ViewState.Idle);
-    }
-      
-   setState(viewState:ViewState.Idle);
+              // setState(viewState:ViewState.Idle);
+            }
+              
+          setState(viewState:ViewState.Idle);
 
 
     }

@@ -12,7 +12,11 @@ import 'package:UVLightApp/router.dart' as router;
 
 
 void main(){
+
+  //This for the dependecies injection
   setupLocator();
+
+  //This to lock app to portrait. Currently resposive ui not supported
      WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
     .then((_) {
@@ -28,6 +32,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
+/*
+Wrap with streambuilder to  change the theme of whole app according to UV values
+*/
      return StreamBuilder<ThemeData>(
              stream: locator<ThemeManager>().themeController.stream,
              initialData: ThemeData(

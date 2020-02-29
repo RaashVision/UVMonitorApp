@@ -8,72 +8,57 @@ import 'package:percent_indicator/circular_percent_indicator.dart';
 class UVCircularWidget extends StatelessWidget {
 
   final double radius;
-  final double percent;
-  final String levelname;
-  final double valueofUv;
-  final Widget centerWidget;
 
-  UVCircularWidget({this.levelname="Low",this.valueofUv=0.0,this.radius = 240.0,this.percent = 0.8,this.centerWidget = const Text(
-                    "70.0%",
-                    style:
-                        const TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
-                  ),});
+  UVCircularWidget({this.radius = 240.0});
   @override
   Widget build(BuildContext context) {
     return  BaseView<UVCircularViewModel>(
-        onModelReady: (model)=> model.getDefaultData(),
+        //onModelReady: (model)=> model.getDefaultData(),
          builder: (context, model, child) =>
             Stack(
-              // crossAxisAlignment: CrossAxisAlignment.stretch,
-              // mainAxisSize: MainAxisSize.max,
               children: <Widget>[
 
-
+                //This is datetime UI
                 Align(alignment: Alignment.topCenter, child: Padding(
                   padding: const EdgeInsets.fromLTRB(0,20,0,0),
                   child: Text(new DateFormat.yMd().add_jm().format(model.current_cor.dateTime),style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),),
                 )),
 
-              
+              //This is circular UI with bottomsheet
                 Center(
                   child: GestureDetector(
                     onTap: (){
 
-
-                    showModalBottomSheet(
-                        shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.only(topLeft: Radius.circular(10.0), topRight: Radius.circular(10.0)),
-                            ),
-                        context: context,
-                        builder: (BuildContext bc){
-                            return Padding(
-                              padding: const EdgeInsets.fromLTRB(0,10,0,0),
-                              child: Container(
-                                      
-                                child: new Wrap(
-                                children: <Widget>[
-                                  
-                                  Padding(
-                                    padding: const EdgeInsets.all(8.0),
-                                    child: Text('UV Range',style: TextStyle(fontSize:20,fontWeight:FontWeight.bold),),
+                          //Show Bottomsheet UI
+                          showModalBottomSheet(
+                              shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.only(topLeft: Radius.circular(10.0), topRight: Radius.circular(10.0)),
                                   ),
-                                  Image.asset('uvrange.PNG' , width: MediaQuery.of(context).size.width,)
-                                 
-          
-          
-                                ],
-                              ),
-                              ),
+                              context: context,
+                              builder: (BuildContext bc){
+                                  return Padding(
+                                    padding: const EdgeInsets.fromLTRB(0,10,0,0),
+                                    child: Container(
+                                            
+                                      child: new Wrap(
+                                      children: <Widget>[
+                                        
+                                        Padding(
+                                          padding: const EdgeInsets.all(8.0),
+                                          child: Text('UV Range',style: TextStyle(fontSize:20,fontWeight:FontWeight.bold),),
+                                        ),
+                                        Image.asset('uvrange.PNG' , width: MediaQuery.of(context).size.width,)
+                                      
+            
+                                      ],
+                                    ),
+                                    ),
+                                  );
+                              }
                             );
-                        }
-                      );
 
                     },
-                                      child: new CircularPercentIndicator(
-                                  // header: Padding(
-                                  //   padding: const EdgeInsets.all(5.0),
-                                  //   child: Text(model.lastClickTime,style: TextStyle(fontSize: 20),),
-                                  // ),
+                    child: new CircularPercentIndicator(
                                   radius: radius,
                                   lineWidth: 13.0,
                                   animation: true,
@@ -94,14 +79,33 @@ class UVCircularWidget extends StatelessWidget {
                                 ),
                   ),
                 ),
-                
 
-              
-
-             
+                 /* This widget to show Latitude and longtitude at home page */
                   Align(
                     alignment: Alignment.bottomCenter,
-                                      child: Row(
+                     child: latlongUI(model.current_cor.latitude, model.current_cor.longtitude)
+                  )
+                 //)
+              ],
+            ),
+                    
+        
+        
+      
+    );
+
+  }
+
+
+
+
+
+
+
+    /* This widget to show Latitude and longtitude at home page */
+  Widget latlongUI(double lat, double long){
+
+    return Row(
                      
                      mainAxisSize: MainAxisSize.max,
                      children: <Widget>[
@@ -114,7 +118,8 @@ class UVCircularWidget extends StatelessWidget {
                                child: Text('Latitude :' ,style: TextStyle(fontSize: 18 ,fontWeight: FontWeight.bold,)),
                              ),
                            ),
-                           Expanded(child: Text(model.current_cor.latitude.toStringAsFixed(3),style: TextStyle(fontSize: 15 ))),
+                         //  Expanded(child: Text(model.current_cor.latitude.toStringAsFixed(3),style: TextStyle(fontSize: 15 ))),
+                            Expanded(child: Text(lat.toStringAsFixed(3),style: TextStyle(fontSize: 15 ))),
                          ],
                        ),),flex:5),
                       Flexible(child: Container(color: Colors.grey , height: 50, child: Row(
@@ -126,20 +131,14 @@ class UVCircularWidget extends StatelessWidget {
                                child: Text('Longtitude :' ,style: TextStyle(fontSize: 18 ,fontWeight: FontWeight.bold,)),
                              ),
                            flex: 7,),
-                           Expanded(child: Text(" " +model.current_cor.longtitude.toStringAsFixed(3),style: TextStyle(fontSize: 15 )),flex: 3,),
+                           //Expanded(child: Text(" " +model.current_cor.longtitude.toStringAsFixed(3),style: TextStyle(fontSize: 15 )),flex: 3,),
+                           Expanded(child: Text(" " +long.toStringAsFixed(3),style: TextStyle(fontSize: 15 )),flex: 3,),
                          ],
                        ),),flex:5),
                      ],
-                 ),
-                  )
-                 //)
-              ],
-            ),
-                      
-          
-        
-        
-      
-    );
+                 );
+
+
+
   }
 }

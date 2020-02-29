@@ -16,49 +16,24 @@ import '../locator.dart';
 
 class UVCircularViewModel extends BaseViewModel{
 
-  String errormessage; 
   IRepository iRepository = locator<IRepository>();
-  NavigationService navigationService = locator<NavigationService>();
   StreamManager iStream = locator<StreamManager>();
   OpenUVApiResult openuvresult = new OpenUVApiResult();
   UVRangeService uvRangeService = locator<UVRangeService>();
   UVRangeModel rangeModel = new UVRangeModel(uv_value: 0,levelName: "Low",percent: 0.0,uv_color: PrimaryColor);
   ThemeManager themeManager  = locator<ThemeManager>();
-  String lastClickTime = "";
   Coordinate current_cor = new Coordinate(latitude: 0.0,longtitude: 0.0, dateTime: DateTime.now());
   DialogService dialogService = locator<DialogService>();
-  bool isalredyopen = true;
+
   //Constructor
   UVCircularViewModel(){
-
+      //Received stream from GoogleMap widget publisher
      iStream.getCoordinateFromGoogleMap().stream.listen((value) async{
-
-
-
-       if(isalredyopen){
-
-          isalredyopen = false;
           await getUVvaluefortheCoordinate(value);
-          isalredyopen = true;
-
-       }
-       
-
-      
-     
-
      });
-
-
-
   }
 
-  void getDefaultData() async{
-
-
-  }
-
-
+//This to get UV value from api
   Future getUVvaluefortheCoordinate(Coordinate _tapcorrdinate) async{
 
     try{
@@ -100,18 +75,11 @@ class UVCircularViewModel extends BaseViewModel{
             print('User cancelled the dialog');
           }
 
-      //  setState(viewState:ViewState.Error,event: generalResult.errormessage);
-
       }
-
 
     
     }
     catch(E){
-
-      int ds = 0;
-
-       // setState(viewState:ViewState.Error,event: E.toString());
 
     }
 

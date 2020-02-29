@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+/* This file is for the background UI for the login page */
 
 class Background extends StatelessWidget {
   @override

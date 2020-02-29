@@ -17,45 +17,32 @@ class GoogleMapWidget extends StatefulWidget {
 
 class _GoogleMapWidgetState extends State<GoogleMapWidget> {
 
-  // 1
+bool isClicked = true;
 Completer<GoogleMapController> _controller = Completer();
-// 2
+
 static final CameraPosition _myLocation =CameraPosition(target: LatLng(0, 0),);
 Coordinate newloc = new Coordinate();
 final Map<String, Marker> _markers = {};
   @override
   Widget build(BuildContext context) {
           return  BaseView<UVGoogleMapViewModel>(
-        onModelReady: (model)=> model.getDefaultData(),
+     //   onModelReady: (model)=> model.getDefaultData(),
          builder:(context, model, child) =>  Scaffold(
-        // 1
           body: Stack(
             children: <Widget>[
               GoogleMap(
                 myLocationEnabled: true,
                 myLocationButtonEnabled : true,
-                //cameraTargetBounds: 
                 onLongPress: (val){
 
-                   // setState(() {
-                    _markers.clear();
-                    final marker = Marker(
-                        markerId: MarkerId("curr_loc"),
-                        position: LatLng(val.latitude, val.longitude),
-                        infoWindow: InfoWindow(title: 'Your Location'),
-                    );
-                    _markers["Tap Location"] = marker;
 
-                    model.publishCoordinate(new Coordinate(latitude :val.latitude,longtitude: val.longitude));
-                //  });
+                   createMarker(val,model,'Your Location');
 
                 },
-                // 2
+
                 initialCameraPosition: _myLocation,
-                // 3
                 mapType: MapType.normal,
                 markers: _markers.values.toSet(),
-                // 4
                 onMapCreated: (GoogleMapController controller) {
                   _controller.complete(controller);
                 },
@@ -65,26 +52,12 @@ final Map<String, Marker> _markers = {};
                   newloc.longtitude = val.target.longitude;
                 },
                 onCameraIdle: (){
+                  createMarker(LatLng(newloc.latitude, newloc.longtitude),model,'Your Location');
 
-                    setState(() {
-                    _markers.clear();
-                    final marker = Marker(
-                        markerId: MarkerId("curr_loc"),
-                        position: LatLng(newloc.latitude, newloc.longtitude),
-                        infoWindow: InfoWindow(title: 'Your Location'),
-                    );
-                    _markers["Tap Location"] = marker;
-
-                    
-                 });
-                 model.publishCoordinate(newloc);
-                },
-               
-                
-                
+                },         
               ),
            
-           
+           //Show custom mylocation widget if the default mylocation widget does not show
            widget.permisongiven ==false?
            Align(
              alignment: Alignment.bottomLeft,
@@ -97,19 +70,8 @@ final Map<String, Marker> _markers = {};
 
               var curr =  await model.locationService.getLocation();
 
-               setState(() {
-                      _markers.clear();
-                      final marker = Marker(
-                            markerId: MarkerId("curr_loc"),
-                            position: LatLng(curr.latitude, curr.longtitude),
-                            infoWindow: InfoWindow(title: 'Your Location'),
-                      );
-                      _markers["Current Location"] = marker;
-
-                       model.publishCoordinate(newloc);
-                      
-                    });
-
+                createMarker(LatLng(curr.latitude, curr.longtitude),model,'Your Location');
+                
              }),
                         ),
            ) :Container()
@@ -118,4 +80,31 @@ final Map<String, Marker> _markers = {};
           ),
         ));
   }
+
+//This to create market and publish
+  void createMarker(LatLng latLng,UVGoogleMapViewModel model,String markerName){
+
+//This to prevent muiltiple click problem
+    if(isClicked){
+
+      isClicked  =false;
+     _markers.clear();
+                    final marker = Marker(
+                        markerId: MarkerId("curr_loc"),
+                        position: latLng,
+                        infoWindow: InfoWindow(title: markerName),
+                    );
+                    _markers["Tap Location"] = marker;
+
+     model.publishCoordinate(new Coordinate(latitude: latLng.latitude,longtitude: latLng.longitude));
+    isClicked = true;
+
+
+
+
+    }
+
+  
+
+  } 
 }

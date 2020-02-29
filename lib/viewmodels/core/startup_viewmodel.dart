@@ -9,15 +9,10 @@ import 'base_viewmodel.dart';
 
 class StartUpViewModel extends BaseViewModel{
 
-   final AuthenticationService _authenticationService =locator<AuthenticationService>();
-  final NavigationService _navigationService = locator<NavigationService>();
-  PermissionService permissionService  =locator<PermissionService>();
-  DialogService dialogService = locator<DialogService>();
-  String errormessage; 
-
+   AuthenticationService _authenticationService =locator<AuthenticationService>();
+   NavigationService _navigationService = locator<NavigationService>();
 
     void startUpLogic() async {
-
 
         var hasLoggedInUser = await _authenticationService.isUserLoggedIn();
 

@@ -6,18 +6,15 @@ import 'package:flutter/material.dart';
 
 class UVProfilePicWidget extends StatelessWidget {
 
-  final String imgurl;
 
-  UVProfilePicWidget({this.imgurl='googleicon.png'});
-
-
+  BuildContext _context;
 
   @override
   Widget build(BuildContext context) {
+
      return BaseView<UVProfilePicViewModel>(
         onModelReady: (model)=> model.getDefaultData(),
-         builder: (context, model, child) => 
-      
+         builder: (context, model, child) =>     
           CircleAvatar(
          // radius: 5,
           child: Material(
@@ -38,8 +35,23 @@ class UVProfilePicWidget extends StatelessWidget {
                         ),
                     context: context,
                     builder: (BuildContext bc){
-                        return Padding(
-                          padding: const EdgeInsets.fromLTRB(0,10,0,0),
+                     return uiforshowBottomSheet(model);         
+                    }
+                  );
+            },
+          ),
+              ),
+            ),
+        
+
+    );
+  }
+
+//This is UI for the bottomsheet
+  Widget uiforshowBottomSheet(UVProfilePicViewModel model){
+
+  return Padding(
+    padding: const EdgeInsets.fromLTRB(0,10,0,0),
                           child: Container(
                             
                           
@@ -59,12 +71,7 @@ class UVProfilePicWidget extends StatelessWidget {
                                       child: Image.network(model.user?.photoUrl??"http://getdrawings.com/free-icon/man-in-circle-icon-53.png"),
                                   ))),
                               ),
-          
 
-
-
-
-                             
                           new ListTile(
                             title:Row(
                               children: <Widget>[
@@ -107,14 +114,11 @@ class UVProfilePicWidget extends StatelessWidget {
                           ),
                           ),
                         );
-                    }
-                  );
-            },
-          ),
-              ),
-            ),
+
         
 
-    );
   }
+
+
+
 }

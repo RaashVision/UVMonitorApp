@@ -8,25 +8,12 @@ import 'core/base_viewmodel.dart';
 
 class UVGoogleMapViewModel extends BaseViewModel{
 
-  String errormessage; 
-
   LocationService locationService = locator<LocationService>();
   StreamManager iStream = locator<StreamManager>();
-  Coordinate _coordinate = new Coordinate();
-
-  void getDefaultData() async{
-     setState(viewState:ViewState.Busy);
 
 
-     setState(viewState:ViewState.Idle);
-
-  }
-
-  void getCurrentLocation(){
-    
-  }
-
-  void publishCoordinate(Coordinate _coor){
+//Publish to subcriber about current coordianate
+  Future publishCoordinate(Coordinate _coor){
 
     _coor.dateTime = DateTime.now().toUtc();
 

@@ -14,10 +14,7 @@ import '../../../../settings.dart';
 
 class UVLoginViewMobilePortrait extends BaseModelWidget<UVLoginViewModel>  {
  
-  List<bool> isSelected = [false, false, false];
-
   BuildContext maincontext;
-
 
   @override
   Widget build(BuildContext context, UVLoginViewModel model) {
@@ -28,7 +25,7 @@ class UVLoginViewMobilePortrait extends BaseModelWidget<UVLoginViewModel>  {
        child: DynamicUIBasedOnState(state:model.state, onMAinUI: fullView(model :model)));
   }
 
-
+//Overall UI
   Widget fullView({UVLoginViewModel model}){
 
       return Scaffold(
@@ -52,7 +49,7 @@ class UVLoginViewMobilePortrait extends BaseModelWidget<UVLoginViewModel>  {
 
   }
 
-
+//This widget to show the login button
   Widget  logoAndBtn(UVLoginViewModel model){
 
     return Container(
@@ -75,19 +72,7 @@ class UVLoginViewMobilePortrait extends BaseModelWidget<UVLoginViewModel>  {
     
   }
 
-    Widget  logoAndBtnLis(){
-
-    return ListView(children: <Widget>[
-
-      
-
-       FlutterLogo(size: 20,),
-       Text('Thiyraash')
-
-
-    ]);
     
-  }
 
 
 }

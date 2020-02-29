@@ -24,8 +24,8 @@ import 'managers/stream_manager.dart';
 GetIt locator = GetIt.I;
 
 void setupLocator() {
+  
 //This file is for dependecies injection
-
 locator.registerLazySingleton(()=>ConverterHelperUtils());
 locator.registerLazySingleton(() => NavigationService());
 locator.registerLazySingleton(()=>StreamManager());

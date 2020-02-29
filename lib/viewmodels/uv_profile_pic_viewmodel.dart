@@ -12,6 +12,7 @@ class UVProfilePicViewModel extends BaseViewModel{
   AuthenticationService authenticationService = locator<AuthenticationService>();
   FirebaseUser user ; 
 
+//On start
   void getDefaultData() async{
 
     var currentuser = await authenticationService.currentUserLoggedInInfo();

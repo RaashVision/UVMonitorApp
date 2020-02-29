@@ -10,9 +10,6 @@ class NetworkErrorHandlerUtils{
 
     var statuscode = responce.statusCode.toString();
     var errormessage = responce.toString();
-
-    var errordata = responce.data['error'];
-
     return new ResultAndStatus(ViewState.Error, errormessage, null);
 
   }

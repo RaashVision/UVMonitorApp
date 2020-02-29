@@ -16,7 +16,7 @@ class _UVLoginViewState extends State<UVLoginView> {
   @override
   Widget build(BuildContext context) {
     return BaseView<UVLoginViewModel>(
-        onModelReady: (model)=> model.getDefaultData(),
+      //  onModelReady: (model)=> model.getDefaultData(),
          builder: (context, model, child) => ScreenTypeLayout(
           mobile: OrientationLayout(
             portrait: (context) => UVLoginViewMobilePortrait(),
