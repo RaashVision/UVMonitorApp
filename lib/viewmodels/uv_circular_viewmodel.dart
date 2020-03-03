@@ -52,7 +52,8 @@ class UVCircularViewModel extends BaseViewModel{
 
         rangeModel = uvRangeService.uvPropertiesBasedOnUVRange(openuvresult?.result?.uv??0.0);
 
-        themeManager.changeTheme(new ThemeData(primaryColor: rangeModel.uv_color));
+        themeManager.changeTheme(new ThemeData(primaryColor: rangeModel.uv_color,
+        floatingActionButtonTheme: FloatingActionButtonThemeData(backgroundColor:  rangeModel.uv_color.withOpacity(0.7)),buttonColor:rangeModel.uv_color  ));
 
 
         int dsw = 0;

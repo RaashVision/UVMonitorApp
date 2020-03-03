@@ -6,5 +6,6 @@ class Settings{
 static String appBarTiitle="UV Monitor";
 
 //Change according to yours api token
-static String OpenUV_APItoken = "a13a768ea092343f0024eae37922851a";
+static String OpenUV_APItoken = "dc5ac45060ec40c3c6222747cf919769";
 }
+ 

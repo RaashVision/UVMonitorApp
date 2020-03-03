@@ -32,7 +32,7 @@ final Map<String, Marker> _markers = {};
             children: <Widget>[
               GoogleMap(
                 myLocationEnabled: true,
-                myLocationButtonEnabled : true,
+                myLocationButtonEnabled : false,
                 onLongPress: (val){
 
 
@@ -52,29 +52,30 @@ final Map<String, Marker> _markers = {};
                   newloc.longtitude = val.target.longitude;
                 },
                 onCameraIdle: (){
-                  createMarker(LatLng(newloc.latitude, newloc.longtitude),model,'Your Location');
+                //  createMarker(LatLng(newloc.latitude, newloc.longtitude),model,'Your Location');
 
                 },         
               ),
            
            //Show custom mylocation widget if the default mylocation widget does not show
-           widget.permisongiven ==false?
+          
            Align(
              alignment: Alignment.bottomLeft,
                         child: Padding(
                           padding: const EdgeInsets.all(20.0),
                           child: FloatingActionButton(
-                            backgroundColor: PrimaryColor.withOpacity(0.7),
+                           // backgroundColor: PrimaryColor.withOpacity(0.7),
                             child: Icon(Icons.my_location),
                             onPressed: () async{
 
-              var curr =  await model.locationService.getLocation();
+                              var curr =  await model.locationService.getLocation();
+                             await gotoLocation(curr);
 
-                createMarker(LatLng(curr.latitude, curr.longtitude),model,'Your Location');
+                             createMarker(LatLng(curr.latitude, curr.longtitude),model,'Your Location');
                 
              }),
                         ),
-           ) :Container()
+           )
            
             ],
           ),
@@ -107,4 +108,14 @@ final Map<String, Marker> _markers = {};
   
 
   } 
+
+
+  Future<void> gotoLocation(Coordinate coordinate) async{
+
+       final GoogleMapController controller = await _controller.future;
+    controller.animateCamera(CameraUpdate.newCameraPosition(CameraPosition(target: LatLng(coordinate.latitude, coordinate.longtitude), zoom: 15,tilt: 50.0,
+      bearing: 45.0,)));
+
+
+  }
 }

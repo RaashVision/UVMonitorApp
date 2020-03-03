@@ -40,7 +40,7 @@ class _DialogManagerState extends State<DialogManager> {
             _dialogService.dialogComplete(AlertResponse(confirmed: false)),
         buttons: [
           DialogButton(
-            color: PrimaryColor,
+           // color: PrimaryColor,
  radius: BorderRadius.circular(5),
             child: Text(request.buttonTitle, style: TextStyle(color: Colors.black),),
             onPressed: () {
@@ -49,7 +49,7 @@ class _DialogManagerState extends State<DialogManager> {
             },
           ),
               DialogButton(
-            color: PrimaryColor,
+          //  color: PrimaryColor,
             radius: BorderRadius.circular(5),
             child: Text(request.buttonNegativeTitle, style: TextStyle(color: Colors.black),),
             onPressed: () {
@@ -70,7 +70,7 @@ class _DialogManagerState extends State<DialogManager> {
             _dialogService.dialogComplete(AlertResponse(confirmed: false)),
         buttons: [
           DialogButton(
-            color: PrimaryColor,
+            //color: PrimaryColor,
  radius: BorderRadius.circular(5),
             child: Text(request.buttonTitle, style: TextStyle(color: Colors.black),),
             onPressed: () {
