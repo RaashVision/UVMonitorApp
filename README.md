@@ -7,6 +7,7 @@ This is the  UVMonitorApp built in Flutter. This app is used to monitor the Ultr
 - Get current location in Google map and gets its UV index value
 - Tap on google map to get the particular UV index value
 - Check Profile information by tap on profile picture
+- Theme of app change according to the UV light
 
 ##  How to run the project
 
