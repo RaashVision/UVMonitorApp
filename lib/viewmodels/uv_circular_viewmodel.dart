@@ -82,6 +82,8 @@ class UVCircularViewModel extends BaseViewModel{
     }
     catch(E){
 
+      int ds = 0;
+
     }
 
 

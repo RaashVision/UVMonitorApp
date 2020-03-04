@@ -41,10 +41,10 @@ class Result {
   Result.fromJson(Map<String, dynamic> json) {
     uv = json['uv'] == 0 ?0.0 :json['uv'];
     uvTime = json['uv_time'];
-    uvMax = json['uv_max'];
-    uvMaxTime = json['uv_max_time'];
-    ozone = json['ozone'];
-    ozoneTime = json['ozone_time'];
+    // uvMax = json['uv_max'];
+    // uvMaxTime = json['uv_max_time'];
+    // ozone = json['ozone'];
+    // ozoneTime = json['ozone_time'];
     // safeExposureTime = json['safe_exposure_time'] != null
     //     ? new SafeExposureTime.fromJson(json['safe_exposure_time'])
     //     : null;
