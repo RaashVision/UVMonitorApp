@@ -11,14 +11,16 @@ This is the  UVMonitorApp built in Flutter. This app is used to monitor the Ultr
 ## Screenshots
 
 ![screenshot_20200229-201652](https://user-images.githubusercontent.com/14199227/75607554-3d696b00-5b33-11ea-871f-84e91a9703e1.jpg)
-![screenshot_20200229-202338](https://user-images.githubusercontent.com/14199227/75607563-540fc200-5b33-11ea-9234-b304f8f6a31f.jpg)
-![screenshot_20200229-202344](https://user-images.githubusercontent.com/14199227/75607558-44907900-5b33-11ea-9acc-ce2474d3bf63.jpg)
 
+![screenshot_20200304-231032(1)](https://user-images.githubusercontent.com/14199227/75893951-79236e00-5e6e-11ea-8763-3e91284b32cb.jpg)
+
+![screenshot_20200304-231040(1)](https://user-images.githubusercontent.com/14199227/75894000-8a6c7a80-5e6e-11ea-9b6f-b7a17b66690f.jpg)
 
 
 ## GIF
 
-![20200229-202211](https://user-images.githubusercontent.com/14199227/75607569-62f67480-5b33-11ea-8290-aac06d48547c.gif)
+![ezgif com-video-to-gif(1)](https://user-images.githubusercontent.com/14199227/75894026-96583c80-5e6e-11ea-9e9e-abc868a24fb6.gif)
+
 
 Design Architecture
 - MVVM (Model-View-Viewmodel)
