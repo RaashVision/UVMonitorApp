@@ -8,6 +8,23 @@ This is the  UVMonitorApp built in Flutter. This app is used to monitor the Ultr
 - Tap on google map to get the particular UV index value
 - Check Profile information by tap on profile picture
 
+##  How to run the project
+
+Android
+You have to add your Api key at android>app>main>AndroidManifest.xml as below
+
+ <application
+        android:name="io.flutter.app.FlutterApplication"
+        android:label="UVLightApp"
+        android:icon="@mipmap/uvlogo">
+
+           <meta-data 
+                android:name="com.google.android.geo.API_KEY"
+                android:value="YourApiKey"/>
+
+IOS
+Not yet test or implemented
+
 ## Screenshots
 
 ![screenshot_20200229-201652](https://user-images.githubusercontent.com/14199227/75607554-3d696b00-5b33-11ea-871f-84e91a9703e1.jpg)
