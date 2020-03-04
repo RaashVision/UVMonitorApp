@@ -27,6 +27,9 @@ You have to add your Api key at android>app>main>AndroidManifest.xml as below
 
 ###For Google login
 
+You have to replace the google-services.json at android> google-service.json file with yours
+
+
 TODO
 
 
