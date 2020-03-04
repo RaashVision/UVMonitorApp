@@ -11,9 +11,7 @@ This is the  UVMonitorApp built in Flutter. This app is used to monitor the Ultr
 ## Screenshots
 
 ![screenshot_20200229-201652](https://user-images.githubusercontent.com/14199227/75607554-3d696b00-5b33-11ea-871f-84e91a9703e1.jpg)
-
 ![screenshot_20200304-231032(1)](https://user-images.githubusercontent.com/14199227/75893951-79236e00-5e6e-11ea-8763-3e91284b32cb.jpg)
-
 ![screenshot_20200304-231040(1)](https://user-images.githubusercontent.com/14199227/75894000-8a6c7a80-5e6e-11ea-9b6f-b7a17b66690f.jpg)
 
 
