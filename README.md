@@ -17,7 +17,7 @@ This is the  UVMonitorApp built in Flutter. This app is used to monitor the Ultr
 
 ## GIF
 
-![ezgif com-video-to-gif(1)](https://user-images.githubusercontent.com/14199227/75894026-96583c80-5e6e-11ea-9e9e-abc868a24fb6.gif)
+![ezgif com-resize](https://user-images.githubusercontent.com/14199227/75894293-f818a680-5e6e-11ea-91fc-1a4ea350c362.gif)
 
 
 Design Architecture
