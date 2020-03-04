@@ -7,18 +7,36 @@ This is the  UVMonitorApp built in Flutter. This app is used to monitor the Ultr
 - Get current location in Google map and gets its UV index value
 - Tap on google map to get the particular UV index value
 - Check Profile information by tap on profile picture
+- Theme of app change according to the UV light
+
+##  How to run the project
+
+Android :
+You have to add your Api key at android>app>main>AndroidManifest.xml as below
+
+ <application
+        android:name="io.flutter.app.FlutterApplication"
+        android:label="UVLightApp"
+        android:icon="@mipmap/uvlogo">
+
+           <meta-data 
+                android:name="com.google.android.geo.API_KEY"
+                android:value="YourApiKey"/>
+
+IOS :
+Not yet test or implemented
 
 ## Screenshots
 
 ![screenshot_20200229-201652](https://user-images.githubusercontent.com/14199227/75607554-3d696b00-5b33-11ea-871f-84e91a9703e1.jpg)
-![screenshot_20200229-202338](https://user-images.githubusercontent.com/14199227/75607563-540fc200-5b33-11ea-9234-b304f8f6a31f.jpg)
-![screenshot_20200229-202344](https://user-images.githubusercontent.com/14199227/75607558-44907900-5b33-11ea-9acc-ce2474d3bf63.jpg)
-
+![screenshot_20200304-231032(1)](https://user-images.githubusercontent.com/14199227/75893951-79236e00-5e6e-11ea-8763-3e91284b32cb.jpg)
+![screenshot_20200304-231040(1)](https://user-images.githubusercontent.com/14199227/75894000-8a6c7a80-5e6e-11ea-9b6f-b7a17b66690f.jpg)
 
 
 ## GIF
 
-![20200229-202211](https://user-images.githubusercontent.com/14199227/75607569-62f67480-5b33-11ea-8290-aac06d48547c.gif)
+![ezgif com-resize](https://user-images.githubusercontent.com/14199227/75894293-f818a680-5e6e-11ea-91fc-1a4ea350c362.gif)
+
 
 Design Architecture
 - MVVM (Model-View-Viewmodel)
