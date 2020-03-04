@@ -13,7 +13,7 @@ This is the  UVMonitorApp built in Flutter. This app is used to monitor the Ultr
 
 Android :
 
-<For Google map>
+###For Google map
 You have to add your Api key at android>app>main>AndroidManifest.xml as below
 
  <application
@@ -25,7 +25,7 @@ You have to add your Api key at android>app>main>AndroidManifest.xml as below
                 android:name="com.google.android.geo.API_KEY"
                 android:value="YourApiKey"/>
 
-<For Google login>
+###For Google login
 
 TODO
 
